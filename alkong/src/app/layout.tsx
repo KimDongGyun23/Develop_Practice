@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import AuthSession from "./_components/AuthSession";
-import { MswComponent } from "./_components/MSWComponent";
-import BottomNav from "./_components/BottomNav";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,23 +11,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="ko" className="flexCenter bg-white">
-      <body className="relative flexColumn h-svh  w-full min-w-[320px] max-w-[450px] bg-primary  bg-slate-100">
-        <MswComponent />
-        <AuthSession>
-          <div className="flex-1 overflow-y-scroll scrollbar-hide p-5">
-            {children}
-          </div>
-        </AuthSession>
-        {modal}
-        <BottomNav />
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
