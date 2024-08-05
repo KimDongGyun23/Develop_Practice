@@ -1,0 +1,17 @@
+:root {
+  --color-grey-300: #e2e2e2;
+  --color-grey-500: #9e9e9e;
+  --color-grey-700: #3c3c3c;
+
+  --color-yellow-300: #ffdf56;
+  --color-yellow-500: #fdb714;
+  --color-yellow-700: #f47806;
+
+  --color-green-300: #9de49b;
+  --color-green-500: #58c85a;
+  --color-green-700: #12a054;
+}
+
+body {
+  background-color: lightgray;
+}
