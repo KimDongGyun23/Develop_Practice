@@ -1,1 +1,16 @@
 @tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: NotoSansKR;
+    font-weight: medium;
+    src: url("/src/assets/fonts/NotoSansKR-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html {
+    font-family: "NotoSansKR", sans-serif;
+    font-optical-sizing: auto;
+  }
+}

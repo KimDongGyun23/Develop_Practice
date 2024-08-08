@@ -39,12 +39,32 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontWeight: {
+      regular: "regular",
+      medium: "medium",
+      bold: "bold",
+    },
     extend: {
       backgroundImage: {
         "gradient-mint": "linear-gradient(180deg, #50E9BB 0%, #40D27010 0%)",
       },
       backgroundColor: { ...COLORS },
       colors: { ...COLORS },
+      fontSize: {
+        logo: "32px",
+        title: "24px",
+        subtitle: "19px",
+        headline: "17px",
+        body: "15px",
+        caption: "12px",
+      },
+      lineHeight: {
+        title: "36px",
+        subtitle: "28px",
+        headline: "26px",
+        body: "24px",
+        caption: "18px",
+      },
     },
   },
   plugins: [],
