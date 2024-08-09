@@ -3,8 +3,24 @@
 @layer base {
   @font-face {
     font-family: NotoSansKR;
+    font-weight: 400;
+    src: url('/fonts/NotoSansKR-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: NotoSansKR;
     font-weight: 500;
-    src: url('/src/assets/fonts/NotoSansKR-Medium.ttf') format('truetype');
+    src: url('/fonts/NotoSansKR-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: NotoSansKR;
+    font-weight: 700;
+    src: url('/fonts/NotoSansKR-Bold.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
   }
