@@ -13,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko">
-      <body>{children}</body>
+    <html lang="ko" className="flexCenter">
+      <body className="relative h-svh w-full min-w-[320px] max-w-[450px] overflow-y-scroll border-x px-4">
+        {children}
+      </body>
     </html>
   )
 }
