@@ -40,9 +40,9 @@ const config: Config = {
   ],
   theme: {
     fontWeight: {
-      regular: 'regular',
-      medium: 'medium',
-      bold: 'bold',
+      regular: '400',
+      medium: '500',
+      bold: '700',
     },
     extend: {
       backgroundImage: {

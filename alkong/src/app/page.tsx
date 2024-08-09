@@ -1,4 +1,4 @@
-import Toggle from "@/components/Toggle";
+import Label, { LabelMinus, LabelPlus } from '@/components/Label'
 
 export default function Home() {
   return (
@@ -8,8 +8,24 @@ export default function Home() {
         <p className="title-B">color</p>
       </div>
       <p>color</p>
-      <p>color</p>
-      <Toggle />
+      <div>
+        <Label>Labels</Label>
+        <span>color</span>
+      </div>
+      <div>
+        <LabelPlus>Labels</LabelPlus>
+        <span>color</span>
+      </div>
+      <div>
+        <LabelMinus>Labels</LabelMinus>
+        <span>color</span>
+      </div>
+      <div>
+        <Label>Labels</Label>
+        <LabelPlus>Labels</LabelPlus>
+        <LabelPlus primary>Labels</LabelPlus>
+        <LabelMinus>Labels</LabelMinus>
+      </div>
     </>
-  );
+  )
 }
