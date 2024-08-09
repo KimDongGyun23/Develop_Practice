@@ -1,31 +1,21 @@
-import Label, { LabelMinus, LabelPlus } from '@/components/Label'
+'use client'
+import { FormProvider } from 'react-hook-form'
+
+import { InputField } from '@/components/InputField'
+import { useSignupForm } from '@/hooks/schema/useSignupForm'
 
 export default function Home() {
+  const formMethod = useSignupForm()
+  const { register } = formMethod
+
   return (
-    <>
-      <div className="flexBetween">
-        <p className="text-logo">color</p>
-        <p className="title-B">color</p>
-      </div>
-      <p>color</p>
-      <div>
-        <Label>Labels</Label>
-        <span>color</span>
-      </div>
-      <div>
-        <LabelPlus>Labels</LabelPlus>
-        <span>color</span>
-      </div>
-      <div>
-        <LabelMinus>Labels</LabelMinus>
-        <span>color</span>
-      </div>
-      <div>
-        <Label>Labels</Label>
-        <LabelPlus>Labels</LabelPlus>
-        <LabelPlus primary>Labels</LabelPlus>
-        <LabelMinus>Labels</LabelMinus>
-      </div>
-    </>
+    <div>
+      <FormProvider {...formMethod}>
+        <InputField>
+          <InputField.Label>아이디</InputField.Label>
+          <InputField.Input register={register('id')} placeholder="아이디를 입력해주세요." />
+        </InputField>
+      </FormProvider>
+    </div>
   )
 }
