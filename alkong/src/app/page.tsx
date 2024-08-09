@@ -1,3 +1,5 @@
+import Toggle from "@/components/Toggle";
+
 export default function Home() {
   return (
     <>
@@ -7,6 +9,7 @@ export default function Home() {
       </div>
       <p>color</p>
       <p>color</p>
+      <Toggle />
     </>
   );
 }
