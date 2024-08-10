@@ -3,11 +3,11 @@
 import { useToggle } from '@/hooks/useToggle'
 
 interface IToggle {
-  state: boolean
+  initial: boolean
 }
 
-const Toggle = ({ state }: IToggle) => {
-  const [isActive, changeIsActive] = useToggle(state)
+const Toggle = ({ initial }: IToggle) => {
+  const [isActive, changeIsActive] = useToggle(initial)
   const containerStyle = isActive ? 'bg-mint-6' : 'bg-gray-2'
   const innerStyle = isActive ? 'translate-x-8 bg-white' : 'translate-x-0 bg-mint-6'
 
