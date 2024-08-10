@@ -15,10 +15,11 @@ export const useCheckStore = create<CheckStore>((set, get) => ({
   isAllChecked: false,
 
   handleCheckClick: (section: CheckListKeys) => {
-    const isChecked = get().checkedSections.includes(section)
+    const { checkedSections } = get()
+    const isChecked = checkedSections.includes(section)
     const updatedCheckedSections = isChecked
-      ? get().checkedSections.filter((item) => item !== section)
-      : [...get().checkedSections, section]
+      ? checkedSections.filter((item) => item !== section)
+      : [...checkedSections, section]
 
     set({ checkedSections: updatedCheckedSections })
 

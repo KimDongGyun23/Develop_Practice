@@ -1,5 +1,6 @@
 import { Container } from './Container'
-import { Input, InputCheck, InputCheckAll, InputGender } from './Input'
+import { Input, InputGender } from './Input'
+import { InputCheck, InputCheckAll } from './InputCheck'
 import { Label, LabelWithIcon } from './Label'
 
 export const InputField = Object.assign(Container, {
