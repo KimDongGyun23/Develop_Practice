@@ -27,6 +27,9 @@ const schema = z
       message: '생년월일 형식에 맞지 않습니다.',
     }),
     gender: z.string(),
+    personal: z.boolean(),
+    notification: z.boolean(),
+    location: z.boolean(),
   })
   .partial()
   .refine((data) => data.password === data.confirm, {
