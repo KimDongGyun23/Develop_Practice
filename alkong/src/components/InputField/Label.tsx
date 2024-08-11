@@ -8,14 +8,14 @@ interface ILabelWithIcon {
 }
 
 export const Label = ({ children }: ChildrenProps) => {
-  return <label className="subtitle-B">{children}</label>
+  return <div className="subtitle-B">{children}</div>
 }
 
 export const LabelWithIcon = ({ src, children }: ILabelWithIcon) => {
   return (
-    <label className="flexAlign gap-2">
+    <div className="flexAlign gap-2">
       <Image src={src} width={28} height={28} alt="label-icon" />
       <p className="subtitle-B">{children}</p>
-    </label>
+    </div>
   )
 }
