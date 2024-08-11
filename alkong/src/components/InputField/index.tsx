@@ -1,5 +1,5 @@
 import { Container, ContainerSpaceBetween } from './Container'
-import { TextWithArrow } from './Element'
+import { SelectedTextWithArrow } from './Element'
 import { Input, InputCheck, InputCheckAll, InputGender, InputStepper } from './Input'
 import { Label, LabelWithIcon } from './Label'
 
@@ -12,5 +12,5 @@ export const InputField = Object.assign(Container, {
   InputCheck,
   InputCheckAll,
   InputStepper,
-  TextWithArrow,
+  SelectedTextWithArrow,
 })

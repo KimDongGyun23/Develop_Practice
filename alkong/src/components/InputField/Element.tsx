@@ -2,13 +2,17 @@ import Image from 'next/image'
 
 import arrowImg from '/public/image/arrow-right__green.svg'
 
-interface ITextWithArrow {
+interface ISelectedTextWithArrow {
   isFull?: boolean
   children: React.ReactNode
   handleClick: () => void
 }
 
-export const TextWithArrow = ({ isFull = false, children, handleClick }: ITextWithArrow) => {
+export const SelectedTextWithArrow = ({
+  isFull = false,
+  children,
+  handleClick,
+}: ISelectedTextWithArrow) => {
   const flexStyle = isFull ? 'flexBetweenAlign' : 'flexAlign gap-1'
   return (
     <div className={`${flexStyle}`}>
