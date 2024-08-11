@@ -78,6 +78,13 @@ export default function Home() {
             <InputField.InputCheckAll />
           </InputField>
 
+          <InputField>
+            <InputField.ContainerSpaceBetween>
+              <InputField.Label>복용 요일</InputField.Label>
+              <InputField.TextWithArrow>월, 수, 금</InputField.TextWithArrow>
+            </InputField.ContainerSpaceBetween>
+          </InputField>
+
           <button type="submit">제출</button>
         </form>
       </FormProvider>
