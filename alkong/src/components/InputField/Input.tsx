@@ -64,11 +64,11 @@ export const InputGender = () => {
 export const InputCheck = ({ section, children }: IInputCheck) => {
   const { register, setValue } = useFormContext()
   const { checkedSections, handleCheckClick } = useCheckStore()
-  const isSectionChecked = checkedSections.includes(section)
+  const isChecked = checkedSections.includes(section)
 
   const onCheckClick = () => {
     handleCheckClick(section)
-    setValue(section, !isSectionChecked)
+    setValue(section, !isChecked)
   }
 
   return (
@@ -76,7 +76,7 @@ export const InputCheck = ({ section, children }: IInputCheck) => {
       <input
         type="checkbox"
         id={section}
-        checked={isSectionChecked}
+        checked={isChecked}
         className="peer hidden"
         {...register(section)}
       />
@@ -89,12 +89,7 @@ export const InputCheck = ({ section, children }: IInputCheck) => {
           className="flexAlign size-full gap-2 px-5 py-[14px]"
           onClick={onCheckClick}
         >
-          <Image
-            src={isSectionChecked ? checkImg : nonCheckImg}
-            width={28}
-            height={28}
-            alt="check"
-          />
+          <Image src={isChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
           <p className="headline-B mr-auto text-gray-8">{children}</p>
           <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
         </button>
