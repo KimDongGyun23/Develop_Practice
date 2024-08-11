@@ -82,7 +82,6 @@ export const InputCheck = ({ section, children }: IInputCheck) => {
       <input
         type="checkbox"
         id={section}
-        value={section}
         checked={isSectionChecked}
         className="peer hidden"
         {...register(section)}
@@ -126,7 +125,7 @@ export const InputCheckAll = () => {
 
   return (
     <>
-      <input type="checkbox" id="all" value="all" className="peer hidden" />
+      <input type="checkbox" id="all" className="peer hidden" />
       <label
         htmlFor="all"
         className={`cursor-pointer rounded-xl border border-gray-3 ${isCheckStyle}`}
