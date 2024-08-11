@@ -3,10 +3,13 @@
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
+import { useCounter } from '@/hooks/useCounter'
 import { useCheckStore } from '@/store/checkList'
 
+import circleAddImg from '/public/image/add-circle__green.svg'
 import arrowImg from '/public/image/arrow-right__gray.svg'
 import checkImg from '/public/image/check-circle__green.svg'
+import circleMinusImg from '/public/image/minus-circle__green.svg'
 import nonCheckImg from '/public/image/noncheck-circle__white.svg'
 
 interface IInputField {
@@ -18,6 +21,11 @@ interface IInputField {
 interface IInputCheck {
   section: 'personal' | 'notification' | 'location'
   children: React.ReactNode
+}
+
+interface IInputStepper {
+  section: string
+  initial: number
 }
 
 export const Input = ({ type = 'text', section, placeholder }: IInputField) => {
@@ -134,5 +142,35 @@ export const InputCheckAll = () => {
         </button>
       </label>
     </>
+  )
+}
+
+export const InputStepper = ({ section, initial }: IInputStepper) => {
+  const { count, handleDecrease, handleIncrease } = useCounter(initial)
+  const { register } = useFormContext()
+
+  return (
+    <div className="flexAlign gap-4">
+      <Image
+        src={circleMinusImg}
+        width={28}
+        height={28}
+        className="cursor-pointer"
+        onClick={handleDecrease}
+        alt="circle-minus"
+      />
+      <p className="headline-M">
+        <input type="hidden" value={count} {...register(section)} />
+        {count}
+      </p>
+      <Image
+        src={circleAddImg}
+        width={28}
+        height={28}
+        className="cursor-pointer"
+        onClick={handleIncrease}
+        alt="circle-add"
+      />
+    </div>
   )
 }

@@ -85,6 +85,13 @@ export default function Home() {
             </InputField.ContainerSpaceBetween>
           </InputField>
 
+          <InputField>
+            <InputField.ContainerSpaceBetween>
+              <InputField.Label>복용 횟수</InputField.Label>
+              <InputField.InputStepper section="count" initial={2} />
+            </InputField.ContainerSpaceBetween>
+          </InputField>
+
           <button type="submit">제출</button>
         </form>
       </FormProvider>
