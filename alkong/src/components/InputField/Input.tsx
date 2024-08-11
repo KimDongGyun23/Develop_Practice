@@ -1,9 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
-import { useCounter } from '@/hooks/useCounter'
 import { useCheckStore } from '@/store/checkList'
 
 import circleAddImg from '/public/image/add-circle__green.svg'
@@ -145,8 +145,18 @@ export const InputCheckAll = () => {
 }
 
 export const InputStepper = ({ section, initial }: IInputStepper) => {
-  const { count, handleDecrease, handleIncrease } = useCounter(initial)
-  const { register } = useFormContext()
+  const [count, setCount] = useState<number>(initial)
+  const { register, setValue } = useFormContext()
+
+  const handleDecrease = () => {
+    setValue('count', count - 1)
+    setCount((prevCount) => Math.max(0, prevCount - 1))
+  }
+
+  const handleIncrease = () => {
+    setValue('count', count + 1)
+    setCount((prevCount) => prevCount + 1)
+  }
 
   return (
     <div className="flexAlign gap-4">
