@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import arrowImg from '@/assets/image/Arrow-right__green.svg'
+import arrowImg from '/public/image/arrow-right__green.svg'
 
 interface ITextWithArrow {
   isFull?: boolean

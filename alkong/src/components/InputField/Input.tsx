@@ -3,10 +3,11 @@
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
-import arrowImg from '@/assets/image/Arrow-right.svg'
-import checkImg from '@/assets/image/Button-check.svg'
-import nonCheckImg from '@/assets/image/Button-nonChecked.svg'
 import { useCheckStore } from '@/store/checkList'
+
+import arrowImg from '/public/image/arrow-right__gray.svg'
+import checkImg from '/public/image/check-circle__green.svg'
+import nonCheckImg from '/public/image/noncheck-circle__white.svg'
 
 interface IInputField {
   type?: string
