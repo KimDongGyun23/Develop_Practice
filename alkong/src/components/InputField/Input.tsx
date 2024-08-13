@@ -40,6 +40,17 @@ export const Input = ({ type = 'text', section, placeholder }: IInputField) => {
   )
 }
 
+export const TextArea = ({ section, placeholder }: Omit<IInputField, 'type'>) => {
+  const { register } = useFormContext()
+  return (
+    <textarea
+      {...register(section)}
+      className="resize-none rounded-xl border border-mint-5 px-6 pb-4 pt-[14px] placeholder:text-gray-6 focus:outline-none"
+      placeholder={placeholder}
+    />
+  )
+}
+
 export const InputGender = () => {
   const { register } = useFormContext()
   const genders = ['male', 'female']

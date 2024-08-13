@@ -24,6 +24,12 @@ export default function Home() {
               <InputField.InputStepper section="count" initial={0} />
             </InputField.ContainerSpaceBetween>
           </InputField>
+
+          <InputField>
+            <InputField.Label>증상 및 특이사항</InputField.Label>
+            <InputField.TextArea section="state" placeholder="증상을 입력해주세요." />
+          </InputField>
+
           <button type="submit">제출</button>
         </form>
       </FormProvider>
