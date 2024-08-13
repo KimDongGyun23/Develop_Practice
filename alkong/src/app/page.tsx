@@ -2,6 +2,7 @@
 import { FormProvider, useForm } from 'react-hook-form'
 
 import { InputField } from '@/components/InputField'
+import Toggle from '@/components/Toggle'
 
 export default function Home() {
   const formMethod = useForm({
@@ -35,6 +36,8 @@ export default function Home() {
             <InputField.Label>진료 과목</InputField.Label>
             <InputField.TagList list={['건강검진', '멍']} />
           </InputField>
+
+          <Toggle />
 
           <button type="submit">제출</button>
         </form>

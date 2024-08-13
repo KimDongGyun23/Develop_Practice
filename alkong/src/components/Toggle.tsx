@@ -3,18 +3,24 @@
 import { useToggle } from '@/hooks/useToggle'
 
 interface IToggle {
-  initial: boolean
+  initial?: boolean
+  handleClick: () => void
 }
 
-const Toggle = ({ initial }: IToggle) => {
+const Toggle = ({ initial, handleClick }: IToggle) => {
   const [isActive, changeIsActive] = useToggle(initial)
   const containerStyle = isActive ? 'bg-mint-6' : 'bg-gray-2'
   const innerStyle = isActive ? 'translate-x-8 bg-white' : 'translate-x-0 bg-mint-6'
 
+  const handleClickToggle = () => {
+    handleClick()
+    changeIsActive()
+  }
+
   return (
     <button
       className={`flexAlign h-[34px] w-[66px] shrink-0 rounded-full p-[5px] transition-all ${containerStyle}`}
-      onClick={changeIsActive}
+      onClick={handleClickToggle}
     >
       <div className={`size-6 rounded-full transition-all ${innerStyle}`} />
     </button>

@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-type ReturnType = [boolean, () => void];
+type ReturnType = [boolean, () => void]
 
 export const useToggle = (init = false): ReturnType => {
-  const [state, setState] = useState(init);
+  const [state, setState] = useState<boolean>(init)
 
   const toggle = () => {
-    setState((prevState) => !prevState);
-  };
+    setState((prevState) => !prevState)
+  }
 
-  return [state, toggle];
-};
+  return [state, toggle]
+}
