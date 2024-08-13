@@ -15,6 +15,7 @@ import nonCheckImg from '/public/image/noncheck-circle__white.svg'
 interface IInputField {
   type?: string
   section: string
+  readOnly?: boolean
   placeholder: string
 }
 
@@ -28,23 +29,25 @@ interface IInputStepper {
   initial: number
 }
 
-export const Input = ({ type = 'text', section, placeholder }: IInputField) => {
+export const Input = ({ type = 'text', section, readOnly = false, placeholder }: IInputField) => {
   const { register } = useFormContext()
   return (
     <input
       type={type}
       {...register(section)}
+      readOnly={readOnly}
       className="rounded-xl border border-mint-5 px-6 pb-4 pt-[14px] placeholder:text-gray-6 focus:outline-none"
       placeholder={placeholder}
     />
   )
 }
 
-export const TextArea = ({ section, placeholder }: Omit<IInputField, 'type'>) => {
+export const TextArea = ({ section, readOnly = false, placeholder }: Omit<IInputField, 'type'>) => {
   const { register } = useFormContext()
   return (
     <textarea
       {...register(section)}
+      readOnly={readOnly}
       className="resize-none rounded-xl border border-mint-5 px-6 pb-4 pt-[14px] placeholder:text-gray-6 focus:outline-none"
       placeholder={placeholder}
     />
