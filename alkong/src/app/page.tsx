@@ -31,6 +31,11 @@ export default function Home() {
             <InputField.TextArea section="state" placeholder="증상을 입력해주세요." readOnly />
           </InputField>
 
+          <InputField>
+            <InputField.Label>진료 과목</InputField.Label>
+            <InputField.TagList list={['건강검진', '멍']} />
+          </InputField>
+
           <button type="submit">제출</button>
         </form>
       </FormProvider>

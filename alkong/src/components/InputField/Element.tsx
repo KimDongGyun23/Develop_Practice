@@ -1,6 +1,9 @@
+import React from 'react'
 import Image from 'next/image'
 
 import type { ChildrenProps } from '@/types/common'
+
+import { Label as Tag } from '../Label'
 
 import arrowImg from '/public/image/arrow-right__green.svg'
 
@@ -45,6 +48,17 @@ export const SelectedTextWithArrow = ({
         onClick={handleClick}
         alt="arrow"
       />
+    </div>
+  )
+}
+
+export const TagList = ({ list }: { list: string[] }) => {
+  return (
+    <div className="flexAlign gap-2">
+      {list.map((tag) => (
+        <Tag key={tag}>{tag}</Tag>
+      ))}
+      <Tag.Plus handleClick={() => {}}>추가</Tag.Plus>
     </div>
   )
 }
