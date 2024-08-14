@@ -1,11 +1,11 @@
 'use client'
 
-import Slider from '@/components/Slider'
+import TimeSlider from '@/components/TimeSlider'
 
 export default function Home() {
   return (
     <div>
-      <Slider />
+      <TimeSlider />
     </div>
   )
 }
