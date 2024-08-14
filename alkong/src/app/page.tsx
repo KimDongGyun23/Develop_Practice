@@ -1,14 +1,11 @@
 'use client'
 
-import ScrollPicker from '@/components/ScrollPicker'
+import Slider from '@/components/Slider'
 
 export default function Home() {
   return (
     <div>
-      <ScrollPicker
-        list={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
-        handleSelectedChange={(i) => console.log(i)}
-      />
+      <Slider />
     </div>
   )
 }
