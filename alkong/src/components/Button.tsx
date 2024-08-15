@@ -4,6 +4,7 @@ interface IButton {
   primary?: boolean
   secondary?: boolean
   shadow?: boolean
+  type?: 'button' | 'submit' | 'reset' | undefined
   handleClick: () => void
   children: ReactNode
 }
@@ -12,6 +13,7 @@ const Button = ({
   primary = false,
   secondary = false,
   shadow = false,
+  type = 'button',
   handleClick,
   children,
 }: IButton) => {
@@ -21,6 +23,7 @@ const Button = ({
 
   return (
     <button
+      type={type}
       onClick={handleClick}
       className={`subtitle-B h-14 rounded-xl
         ${shadow && 'shadow-lightShadow'}
