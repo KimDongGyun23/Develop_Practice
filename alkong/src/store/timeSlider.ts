@@ -4,25 +4,44 @@ interface Actions {
   handleHourChange: (selected: string | number) => void
   handleMinuteChange: (selected: string | number) => void
   handleDegreeChange: (selected: string | number) => void
+  getFormattedTime: () => string
   resetSelectedTime: () => void
 }
 
 interface SelectedTimeStore {
-  selectedTime: (number | string)[]
+  selectedTime: [number, number, string]
   actions: Actions
 }
 
-const initialSelectedTime: (number | string)[] = ['01', '00', 'AM']
+const initialSelectedTime: [number, number, string] = [1, 0, 'AM']
 
-export const useSelectedTimeStore = create<SelectedTimeStore>((set) => ({
+export const useSelectedTimeStore = create<SelectedTimeStore>((set, get) => ({
   selectedTime: initialSelectedTime,
   actions: {
     handleHourChange: (selected) =>
-      set((state) => ({ selectedTime: [selected, state.selectedTime[1], state.selectedTime[2]] })),
+      set((state) => ({
+        selectedTime: [Number(selected), state.selectedTime[1], state.selectedTime[2]],
+      })),
     handleMinuteChange: (selected) =>
-      set((state) => ({ selectedTime: [state.selectedTime[0], selected, state.selectedTime[2]] })),
+      set((state) => ({
+        selectedTime: [state.selectedTime[0], Number(selected), state.selectedTime[2]],
+      })),
     handleDegreeChange: (selected) =>
-      set((state) => ({ selectedTime: [state.selectedTime[0], state.selectedTime[1], selected] })),
+      set((state) => ({
+        selectedTime: [state.selectedTime[0], state.selectedTime[1], selected as string],
+      })),
+    getFormattedTime: () => {
+      const [hour, minute, period] = get().selectedTime
+      let hourNumber = hour
+
+      if (period === 'PM' && hour < 12) hourNumber += 12
+      else if (period === 'AM' && hour === 12) hourNumber = 0
+
+      const formattedHour = hourNumber.toString().padStart(2, '0')
+      const formattedMinute = minute.toString().padStart(2, '0')
+
+      return `${formattedHour}:${formattedMinute}`
+    },
     resetSelectedTime: () => set(() => ({ selectedTime: initialSelectedTime })),
   },
 }))

@@ -1,9 +1,9 @@
-import WeightSlider from '@/components/WeightSlider'
+import TimeSlider from '@/components/TimeSlider'
 
 export default function Home() {
   return (
     <div>
-      <WeightSlider />
+      <TimeSlider />
     </div>
   )
 }
