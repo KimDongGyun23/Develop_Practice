@@ -12,7 +12,7 @@ const TimeSlider = () => {
         <ScrollPicker list={minuteArr} handleSelectedChange={(selected) => console.log(selected)} />
         <ScrollPicker list={degreeArr} handleSelectedChange={(selected) => console.log(selected)} />
       </div>
-      <div className="absolute inset-x-0 ml-[66px] mr-[77px] h-8 rounded-lg bg-mint-2" />
+      <div className="absolute top-1/2 h-8 w-[192px] -translate-y-1/2 rounded-lg bg-mint-2" />
     </div>
   )
 }
