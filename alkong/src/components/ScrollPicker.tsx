@@ -6,7 +6,7 @@ interface IScrollPicker {
 }
 
 const ScrollPicker = ({ list, handleSelectedChange }: IScrollPicker) => {
-  const ITEM_HEIGHT = 50
+  const ITEM_HEIGHT = 26
 
   const [selected, setSelected] = useState(0)
   const containerRef = useRef<HTMLUListElement>(null)
@@ -40,12 +40,12 @@ const ScrollPicker = ({ list, handleSelectedChange }: IScrollPicker) => {
     <ul
       ref={containerRef}
       onScroll={handleScroll}
-      className="headline-M m-0 h-[250px] w-full list-none overflow-hidden overflow-y-scroll py-[100px] scrollbar-hide"
+      className="headline-M m-0 h-[130px] list-none overflow-hidden overflow-y-scroll py-[52px] scrollbar-hide"
     >
       {list.map((item, index) => (
         <li
           key={index}
-          className={`flex h-[50px] items-center justify-center ${index === selected ? 'text-black' : 'text-[#949698]'}`}
+          className={`flex items-center justify-center ${index === selected ? 'text-black' : 'text-[#949698]'}`}
           ref={(el) => {
             itemRefs.current[index] = el
           }}
