@@ -1,3 +1,5 @@
+'use client'
+
 import { HOURS, MINUTES, TIME_PERIOD } from '@/constants'
 import { useSelectedTimeActions } from '@/store/timeSlider'
 

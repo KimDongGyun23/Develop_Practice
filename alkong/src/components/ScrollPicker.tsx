@@ -1,3 +1,5 @@
+'use client'
+
 import useSlider from '@/hooks/useSlider'
 import type { IScrollPicker } from '@/types/common'
 
