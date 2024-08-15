@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="flexCenter">
-      <body className="relative h-svh w-full min-w-[320px] max-w-[450px] overflow-y-scroll border-x px-4">
+      <body className="relative h-svh w-full min-w-[320px] max-w-[450px] overflow-y-scroll border-x">
         {children}
       </body>
     </html>
