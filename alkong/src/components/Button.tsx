@@ -25,7 +25,7 @@ const Button = ({
     <button
       type={type}
       onClick={handleClick}
-      className={`subtitle-B h-14 rounded-xl
+      className={`subtitle-B h-14 w-full rounded-xl
         ${shadow && 'shadow-lightShadow'}
         ${primary && primaryStyle}
         ${secondary && secondaryStyle}
