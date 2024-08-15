@@ -69,8 +69,10 @@ export const ErrorMessage = ({ section }: { section: string }) => {
     formState: { errors },
   } = useFormContext()
   return (
-    <p className="caption-M h-[18px] text-red">
-      {errors && errors[section] && errors[section].message?.toString()}
-    </p>
+    <>
+      {errors && errors[section] && (
+        <p className="caption-M h-[18px] text-red">{errors[section].message?.toString()}</p>
+      )}
+    </>
   )
 }
