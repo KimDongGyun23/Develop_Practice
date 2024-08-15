@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
 import type { ChildrenProps } from '@/types/common'
@@ -60,5 +61,16 @@ export const TagList = ({ list }: { list: string[] }) => {
       ))}
       <Tag.Plus handleClick={() => {}}>추가</Tag.Plus>
     </div>
+  )
+}
+
+export const ErrorMessage = ({ section }: { section: string }) => {
+  const {
+    formState: { errors },
+  } = useFormContext()
+  return (
+    <p className="caption-M h-[18px] text-red">
+      {errors && errors[section] && errors[section].message?.toString()}
+    </p>
   )
 }

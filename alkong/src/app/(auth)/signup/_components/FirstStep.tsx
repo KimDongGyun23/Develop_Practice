@@ -21,10 +21,11 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
     <>
       <p className="title-B mb-6">로그인 정보를 입력해주세요!</p>
 
-      <div className="flexColumn grow gap-4">
+      <div className="flexColumn grow gap-4 pb-10">
         <InputField>
           <InputField.Label>아이디</InputField.Label>
           <InputField.Input section="id" placeholder="6~12자/영문 소문자, 숫자 사용 가능" />
+          <InputField.ErrorMessage section="id" />
         </InputField>
 
         <InputField>
@@ -34,6 +35,7 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
             section="password"
             placeholder="8~16자/영문자, 숫자 모두 혼용"
           />
+          <InputField.ErrorMessage section="password" />
         </InputField>
 
         <InputField>
@@ -43,6 +45,7 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
             section="confirm"
             placeholder="비밀번호를 다시 입력해 주세요."
           />
+          <InputField.ErrorMessage section="confirm" />
         </InputField>
       </div>
 

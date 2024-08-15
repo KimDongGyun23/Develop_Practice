@@ -1,5 +1,5 @@
 import { Container, ContainerSpaceBetween } from './Container'
-import { Label, LabelWithIcon, SelectedTextWithArrow, TagList } from './Element'
+import { ErrorMessage, Label, LabelWithIcon, SelectedTextWithArrow, TagList } from './Element'
 import { Input, InputCheck, InputCheckAll, InputGender, InputStepper, TextArea } from './Input'
 
 export const InputField = Object.assign(Container, {
@@ -14,4 +14,5 @@ export const InputField = Object.assign(Container, {
   InputStepper,
   TagList,
   SelectedTextWithArrow,
+  ErrorMessage,
 })
