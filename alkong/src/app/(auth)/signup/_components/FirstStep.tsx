@@ -12,6 +12,11 @@ interface IStep {
 
 const FirstStep = ({ setCurrentTab }: IStep) => {
   const { trigger } = useFormContext()
+
+  const handleClickFirstStep = async () => {
+    const isValid = await trigger(['id', 'password', 'confirm'])
+    if (isValid) setCurrentTab(1)
+  }
   return (
     <>
       <p className="title-B mb-6">로그인 정보를 입력해주세요!</p>
@@ -41,7 +46,7 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
         </InputField>
       </div>
 
-      <Button primary handleClick={() => setCurrentTab(1)}>
+      <Button primary handleClick={handleClickFirstStep}>
         다음으로
       </Button>
     </>
