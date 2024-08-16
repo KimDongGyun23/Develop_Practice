@@ -2,8 +2,6 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
-import { Tag } from '../Tag'
-
 import arrowImg from '/public/image/arrow-right__green.svg'
 
 interface ISelectedTextWithArrow {
@@ -30,17 +28,6 @@ export const SelectedTextWithArrow = ({
         onClick={handleClick}
         alt="arrow"
       />
-    </div>
-  )
-}
-
-export const TagList = ({ list }: { list: string[] }) => {
-  return (
-    <div className="flex-align gap-2">
-      {list.map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
-      ))}
-      <Tag.Plus handleClick={() => {}}>추가</Tag.Plus>
     </div>
   )
 }
