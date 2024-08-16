@@ -20,7 +20,7 @@ const ThirdStep = () => {
           <InputField.InputCheck section="location">
             위치 기반 서비스 동의 (선택)
           </InputField.InputCheck>
-          <InputField.InputCheckAll />
+          <InputField.InputCheck section="all">전체 동의</InputField.InputCheck>
         </InputField>
       </div>
 

@@ -17,7 +17,7 @@ interface IInputField {
 }
 
 interface IInputCheck {
-  section: 'personal' | 'notification' | 'location'
+  section: 'personal' | 'notification' | 'location' | 'all'
   children: React.ReactNode
 }
 
@@ -76,49 +76,30 @@ export const InputGender = () => {
 export const InputCheck = ({ section, children }: IInputCheck) => {
   const { setValue } = useFormContext()
   const checkList = useCheckList()
-  const { handleCheckClick } = useCheckListActions()
-  const isChecked = checkList[section]
+  const isAllChecked = useAllChecked()
+  const { handleCheckClick, handleAllCheckClick } = useCheckListActions()
+  const isChecked = section === 'all' ? isAllChecked : checkList[section]
 
   const onCheckClick = () => {
-    setValue(section, !checkList[section])
-    handleCheckClick(section)
+    if (section === 'all') {
+      const sections = ['personal', 'notification', 'location']
+      sections.forEach((sec) => setValue(sec, !isChecked))
+      handleAllCheckClick()
+    } else {
+      setValue(section, !checkList[section])
+      handleCheckClick(section)
+    }
   }
 
   return (
     <button
       type="button"
-      className={`rounded-xl  px-5 py-[14px] ${isChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
+      className={`rounded-xl px-5 py-[14px] ${isChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
       onClick={onCheckClick}
     >
       <div className="flex-align gap-2">
         <Image src={isChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
         <p className="headline-B mr-auto text-gray-8">{children}</p>
-        <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
-      </div>
-    </button>
-  )
-}
-
-export const InputCheckAll = () => {
-  const { setValue } = useFormContext()
-  const isAllChecked = useAllChecked()
-  const { handleAllCheckClick } = useCheckListActions()
-
-  const onAllCheckClick = () => {
-    const sections = ['personal', 'notification', 'location']
-    sections.forEach((section) => setValue(section, !isAllChecked))
-    handleAllCheckClick()
-  }
-
-  return (
-    <button
-      type="button"
-      className={`rounded-xl  px-5 py-[14px] ${isAllChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
-      onClick={onAllCheckClick}
-    >
-      <div className="flex-align gap-2 rounded-xl">
-        <Image src={isAllChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
-        <p className="headline-B mr-auto text-gray-8">전체 동의</p>
         <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
       </div>
     </button>
