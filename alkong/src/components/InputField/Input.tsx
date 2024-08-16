@@ -1,15 +1,12 @@
 'use client'
 
-import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
 import { useAllChecked, useCheckList, useCheckListActions } from '@/store/checkList'
 
-import circleAddImg from '/public/image/add-circle__green.svg'
 import arrowImg from '/public/image/arrow-right__gray.svg'
 import checkImg from '/public/image/check-circle__green.svg'
-import circleMinusImg from '/public/image/minus-circle__green.svg'
 import nonCheckImg from '/public/image/noncheck-circle__white.svg'
 
 interface IInputField {
@@ -22,11 +19,6 @@ interface IInputField {
 interface IInputCheck {
   section: 'personal' | 'notification' | 'location'
   children: React.ReactNode
-}
-
-interface IInputStepper {
-  section: string
-  initial: number
 }
 
 export const Input = ({ type = 'text', section, readOnly = false, placeholder }: IInputField) => {
@@ -59,7 +51,7 @@ export const InputGender = () => {
   const genders = ['male', 'female']
 
   return (
-    <div className="flex gap-[15px] text-center">
+    <div className="flex cursor-pointer gap-[15px] text-center">
       {genders.map((gender) => (
         <div className="flex-1" key={gender}>
           <input
@@ -130,45 +122,5 @@ export const InputCheckAll = () => {
         <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
       </div>
     </button>
-  )
-}
-
-export const InputStepper = ({ section, initial }: IInputStepper) => {
-  const [count, setCount] = useState<number>(initial)
-  const { register, setValue } = useFormContext()
-
-  const handleDecrease = () => {
-    setValue('count', count - 1)
-    setCount((prevCount) => Math.max(0, prevCount - 1))
-  }
-
-  const handleIncrease = () => {
-    setValue('count', count + 1)
-    setCount((prevCount) => prevCount + 1)
-  }
-
-  return (
-    <div className="flex-align gap-4">
-      <Image
-        src={circleMinusImg}
-        width={28}
-        height={28}
-        className="cursor-pointer"
-        onClick={handleDecrease}
-        alt="circle-minus"
-      />
-      <p className="headline-M">
-        <input type="hidden" value={count} {...register(section)} />
-        {count}
-      </p>
-      <Image
-        src={circleAddImg}
-        width={28}
-        height={28}
-        className="cursor-pointer"
-        onClick={handleIncrease}
-        alt="circle-add"
-      />
-    </div>
   )
 }
