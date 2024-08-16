@@ -3,8 +3,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-import Button from '@/components/Button'
-import { InputField } from '@/components/InputField'
+import { Button, InputField, Label } from '@/components'
 
 interface IStep {
   setCurrentTab: Dispatch<SetStateAction<number>>
@@ -23,13 +22,13 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
 
       <div className="flexColumn grow gap-4 pb-10">
         <InputField>
-          <InputField.Label>아이디</InputField.Label>
+          <Label>아이디</Label>
           <InputField.Input section="id" placeholder="6~12자/영문 소문자, 숫자 사용 가능" />
           <InputField.ErrorMessage section="id" />
         </InputField>
 
         <InputField>
-          <InputField.Label>비밀번호</InputField.Label>
+          <Label>비밀번호</Label>
           <InputField.Input
             type="password"
             section="password"
@@ -39,7 +38,7 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
         </InputField>
 
         <InputField>
-          <InputField.Label>비밀번호 확인</InputField.Label>
+          <Label>비밀번호 확인</Label>
           <InputField.Input
             type="password"
             section="confirm"

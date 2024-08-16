@@ -5,10 +5,7 @@ import { FormProvider } from 'react-hook-form'
 
 import { useSignupForm } from '@/hooks/schema/useSignupForm'
 
-import FirstStep from './FirstStep'
-import SecondStep from './SecondStep'
-import SignupHeader from './SignupHeader'
-import ThirdStep from './ThirdStep'
+import { FirstStep, SecondStep, SignupHeader, ThirdStep } from './index'
 
 const SignupForm = () => {
   const formMethod = useSignupForm()

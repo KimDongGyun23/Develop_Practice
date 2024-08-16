@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import type { ChildrenProps } from '@/types/common'
 
-import { Label as Tag } from '../Label'
+import { Tag } from '../Tag'
 
 import arrowImg from '/public/image/arrow-right__green.svg'
 
