@@ -2,33 +2,14 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
-import type { ChildrenProps } from '@/types/common'
-
 import { Tag } from '../Tag'
 
 import arrowImg from '/public/image/arrow-right__green.svg'
 
-interface ILabelWithIcon {
-  src: string
-  children: React.ReactNode
-}
 interface ISelectedTextWithArrow {
   isFull?: boolean
   children: React.ReactNode
   handleClick: () => void
-}
-
-export const Label = ({ children }: ChildrenProps) => {
-  return <div className="subtitle-B">{children}</div>
-}
-
-export const LabelWithIcon = ({ src, children }: ILabelWithIcon) => {
-  return (
-    <div className="flex-align gap-2">
-      <Image src={src} width={28} height={28} alt="label-icon" />
-      <p className="subtitle-B">{children}</p>
-    </div>
-  )
 }
 
 export const SelectedTextWithArrow = ({
