@@ -20,7 +20,7 @@ const FirstStep = ({ setCurrentTab }: IStep) => {
     <>
       <p className="title-B mb-6">로그인 정보를 입력해주세요!</p>
 
-      <div className="flexColumn grow gap-4 pb-10">
+      <div className="flex-column grow gap-4 pb-10">
         <InputField>
           <Label>아이디</Label>
           <InputField.Input section="id" placeholder="6~12자/영문 소문자, 숫자 사용 가능" />

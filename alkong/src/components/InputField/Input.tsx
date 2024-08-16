@@ -98,7 +98,7 @@ export const InputCheck = ({ section, children }: IInputCheck) => {
       className={`rounded-xl  px-5 py-[14px] ${isChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
       onClick={onCheckClick}
     >
-      <div className="flexAlign gap-2">
+      <div className="flex-align gap-2">
         <Image src={isChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
         <p className="headline-B mr-auto text-gray-8">{children}</p>
         <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
@@ -124,7 +124,7 @@ export const InputCheckAll = () => {
       className={`rounded-xl  px-5 py-[14px] ${isAllChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
       onClick={onAllCheckClick}
     >
-      <div className="flexAlign gap-2 rounded-xl">
+      <div className="flex-align gap-2 rounded-xl">
         <Image src={isAllChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
         <p className="headline-B mr-auto text-gray-8">전체 동의</p>
         <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
@@ -148,7 +148,7 @@ export const InputStepper = ({ section, initial }: IInputStepper) => {
   }
 
   return (
-    <div className="flexAlign gap-4">
+    <div className="flex-align gap-4">
       <Image
         src={circleMinusImg}
         width={28}

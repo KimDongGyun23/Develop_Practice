@@ -21,7 +21,7 @@ const SecondStep = ({ setCurrentTab }: IStep) => {
     <>
       <p className="title-B mb-6">회원 정보를 입력해주세요!</p>
 
-      <div className="flexColumn grow gap-4 pb-10">
+      <div className="flex-column grow gap-4 pb-10">
         <InputField>
           <Label>이름</Label>
           <InputField.Input section="name" placeholder="성명을 입력해주세요." />

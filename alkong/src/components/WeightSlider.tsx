@@ -9,8 +9,8 @@ const WeightSlider = () => {
   const { handleIntegerWeightChange, handleDecimalWeightChange } = useWeightActions()
 
   return (
-    <div className="flexCenter relative rounded-xl bg-[#E4FDF5]">
-      <div className="flexCenter z-10 w-[178px] gap-[14px]">
+    <div className="flex-center relative rounded-xl bg-[#E4FDF5]">
+      <div className="flex-center z-10 w-[178px] gap-[14px]">
         <ScrollPicker list={INTEGER_WEIGHT} handleSelectedChange={handleIntegerWeightChange} />
         <p>.</p>
         <ScrollPicker list={DECIMAL_WEIGHT} handleSelectedChange={handleDecimalWeightChange} />

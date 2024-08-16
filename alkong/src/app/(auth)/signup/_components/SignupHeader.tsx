@@ -8,7 +8,7 @@ const SignupHeader = ({ currentTab }: IHeader) => {
   return (
     <div className="mb-10">
       <p className="subtitle-M mb-3 text-center">회원가입</p>
-      <div className="flexAlign gap-[6px]">
+      <div className="flex-align gap-[6px]">
         {[...Array(3)].map((_, index) => (
           <div
             key={index}

@@ -14,7 +14,10 @@ const LoginForm = () => {
 
   return (
     <FormProvider {...formMethod}>
-      <form onSubmit={handleSubmit(handleLoginFormSubmit)} className="flexColumn mb-6 w-full gap-4">
+      <form
+        onSubmit={handleSubmit(handleLoginFormSubmit)}
+        className="flex-column mb-6 w-full gap-4"
+      >
         <InputField>
           <InputField.Input section="id" placeholder="아이디" />
         </InputField>

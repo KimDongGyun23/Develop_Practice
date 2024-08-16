@@ -19,7 +19,7 @@ const Toggle = ({ initial, handleClick }: IToggle) => {
 
   return (
     <button
-      className={`flexAlign h-[34px] w-[66px] shrink-0 rounded-full p-[5px] transition-all ${containerStyle}`}
+      className={`flex-align h-[34px] w-[66px] shrink-0 rounded-full p-[5px] transition-all ${containerStyle}`}
       onClick={handleClickToggle}
     >
       <div className={`size-6 rounded-full transition-all ${innerStyle}`} />

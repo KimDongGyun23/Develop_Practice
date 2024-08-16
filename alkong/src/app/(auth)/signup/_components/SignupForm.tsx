@@ -16,10 +16,10 @@ const SignupForm = () => {
   }
 
   return (
-    <div className="flexColumn h-full px-5 pt-[18px]">
+    <div className="flex-column h-full px-5 pt-[18px]">
       <SignupHeader currentTab={currentTab} />
       <FormProvider {...formMethod}>
-        <form onSubmit={handleSubmit(handleSignupFormSubmit)} className="flexColumn grow pb-20">
+        <form onSubmit={handleSubmit(handleSignupFormSubmit)} className="flex-column grow pb-20">
           {currentTab === 0 && <FirstStep setCurrentTab={setCurrentTab} />}
           {currentTab === 1 && <SecondStep setCurrentTab={setCurrentTab} />}
           {currentTab === 2 && <ThirdStep />}

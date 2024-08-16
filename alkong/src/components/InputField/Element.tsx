@@ -24,7 +24,7 @@ export const Label = ({ children }: ChildrenProps) => {
 
 export const LabelWithIcon = ({ src, children }: ILabelWithIcon) => {
   return (
-    <div className="flexAlign gap-2">
+    <div className="flex-align gap-2">
       <Image src={src} width={28} height={28} alt="label-icon" />
       <p className="subtitle-B">{children}</p>
     </div>
@@ -36,7 +36,7 @@ export const SelectedTextWithArrow = ({
   children,
   handleClick,
 }: ISelectedTextWithArrow) => {
-  const flexStyle = isFull ? 'flexBetweenAlign' : 'flexAlign gap-1'
+  const flexStyle = isFull ? 'flex-between-align' : 'flex-align gap-1'
 
   return (
     <div className={`${flexStyle}`}>
@@ -55,7 +55,7 @@ export const SelectedTextWithArrow = ({
 
 export const TagList = ({ list }: { list: string[] }) => {
   return (
-    <div className="flexAlign gap-2">
+    <div className="flex-align gap-2">
       {list.map((tag) => (
         <Tag key={tag}>{tag}</Tag>
       ))}

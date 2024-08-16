@@ -7,7 +7,7 @@ interface LabelProps {
 
 const Label = ({ children, src }: LabelProps) => {
   return (
-    <div className="flexAlign gap-2">
+    <div className="flex-align gap-2">
       {src && <Image src={src} width={28} height={28} alt="label-icon" />}
       <p className="subtitle-B">{children}</p>
     </div>

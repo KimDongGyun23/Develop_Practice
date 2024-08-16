@@ -9,8 +9,8 @@ const TimeSlider = () => {
   const { handleHourChange, handleMinuteChange, handleDegreeChange } = useSelectedTimeActions()
 
   return (
-    <div className="flexCenter relative rounded-xl bg-[#E4FDF5]">
-      <div className="flexAlign z-10 gap-8">
+    <div className="flex-center relative rounded-xl bg-[#E4FDF5]">
+      <div className="flex-align z-10 gap-8">
         <ScrollPicker list={HOURS} handleSelectedChange={handleHourChange} />
         <ScrollPicker list={MINUTES} handleSelectedChange={handleMinuteChange} />
         <ScrollPicker list={TIME_PERIOD} handleSelectedChange={handleDegreeChange} />
