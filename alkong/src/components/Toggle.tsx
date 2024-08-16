@@ -1,14 +1,18 @@
 'use client'
 
-import { useToggle } from '@/hooks/useToggle'
+import { useEffect } from 'react'
+
+import { useToggleActions, useToggleState } from '@/store/toggle'
 
 interface IToggle {
   initial?: boolean
   handleClick: () => void
 }
 
-const Toggle = ({ initial, handleClick }: IToggle) => {
-  const [isActive, changeIsActive] = useToggle(initial)
+const Toggle = ({ initial = false, handleClick }: IToggle) => {
+  const isActive = useToggleState()
+  const { setInitialState, changeIsActive } = useToggleActions()
+
   const containerStyle = isActive ? 'bg-mint-6' : 'bg-gray-2'
   const innerStyle = isActive ? 'translate-x-8 bg-white' : 'translate-x-0 bg-mint-6'
 
@@ -16,6 +20,10 @@ const Toggle = ({ initial, handleClick }: IToggle) => {
     handleClick()
     changeIsActive()
   }
+
+  useEffect(() => {
+    setInitialState(initial)
+  }, [initial, setInitialState])
 
   return (
     <button

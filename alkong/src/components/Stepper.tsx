@@ -11,7 +11,7 @@ interface IInputStepper {
   initial: number
 }
 
-export const Stepper = ({ initial }: IInputStepper) => {
+const Stepper = ({ initial }: IInputStepper) => {
   const count = useStepperCount()
   const { handleIncrease, handleDecrease, setInitialCount } = useStepperActions()
 
@@ -41,3 +41,5 @@ export const Stepper = ({ initial }: IInputStepper) => {
     </div>
   )
 }
+
+export default Stepper
