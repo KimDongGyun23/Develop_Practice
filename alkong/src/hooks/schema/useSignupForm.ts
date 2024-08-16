@@ -26,7 +26,7 @@ const schema = z
     birth: z.string().regex(/^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/, {
       message: '생년월일 형식에 맞지 않습니다.',
     }),
-    gender: z.string(),
+    gender: z.enum(['male', 'female'], { message: '성별을 선택해주세요.' }),
     personal: z.boolean(),
     notification: z.boolean(),
     location: z.boolean(),

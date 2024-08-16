@@ -6,6 +6,7 @@ import { FormProvider } from 'react-hook-form'
 import { useSignupForm } from '@/hooks/schema/useSignupForm'
 
 import FirstStep from './FirstStep'
+import SecondStep from './SecondStep'
 import SignupHeader from './SignupHeader'
 
 const SignupForm = () => {
@@ -19,7 +20,8 @@ const SignupForm = () => {
       <SignupHeader currentTab={currentTab} />
       <FormProvider {...formMethod}>
         <form onSubmit={handleSubmit(handleSignupFormSubmit)} className="flexColumn grow pb-20">
-          <FirstStep setCurrentTab={setCurrentTab} />
+          {currentTab === 0 && <FirstStep setCurrentTab={setCurrentTab} />}
+          {currentTab === 1 && <SecondStep setCurrentTab={setCurrentTab} />}
         </form>
       </FormProvider>
     </div>
