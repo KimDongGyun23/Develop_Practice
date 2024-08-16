@@ -5,7 +5,7 @@ interface IButton {
   secondary?: boolean
   shadow?: boolean
   type?: 'button' | 'submit' | 'reset' | undefined
-  handleClick: () => void
+  handleClick?: () => void
   children: ReactNode
 }
 

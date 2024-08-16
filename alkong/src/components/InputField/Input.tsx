@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
-import { useCheckStore } from '@/store/checkList'
+import { useAllChecked, useCheckList, useCheckListActions } from '@/store/checkList'
 
 import circleAddImg from '/public/image/add-circle__green.svg'
 import arrowImg from '/public/image/arrow-right__gray.svg'
@@ -82,74 +82,54 @@ export const InputGender = () => {
 }
 
 export const InputCheck = ({ section, children }: IInputCheck) => {
-  const { register, setValue } = useFormContext()
-  const { checkedSections, handleCheckClick } = useCheckStore()
-  const isChecked = checkedSections.includes(section)
+  const { setValue } = useFormContext()
+  const checkList = useCheckList()
+  const { handleCheckClick } = useCheckListActions()
+  const isChecked = checkList[section]
 
   const onCheckClick = () => {
+    setValue(section, !checkList[section])
     handleCheckClick(section)
-    setValue(section, !isChecked)
   }
 
   return (
-    <>
-      <input
-        type="checkbox"
-        id={section}
-        checked={isChecked}
-        className="peer hidden"
-        {...register(section)}
-      />
-      <label
-        htmlFor={section}
-        className={`cursor-pointer rounded-xl border border-gray-3 bg-white peer-checked:bg-green-1`}
-      >
-        <button
-          type="button"
-          className="flexAlign size-full gap-2 px-5 py-[14px]"
-          onClick={onCheckClick}
-        >
-          <Image src={isChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
-          <p className="headline-B mr-auto text-gray-8">{children}</p>
-          <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
-        </button>
-      </label>
-    </>
+    <button
+      type="button"
+      className={`rounded-xl  px-5 py-[14px] ${isChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
+      onClick={onCheckClick}
+    >
+      <div className="flexAlign gap-2">
+        <Image src={isChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
+        <p className="headline-B mr-auto text-gray-8">{children}</p>
+        <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
+      </div>
+    </button>
   )
 }
 
 export const InputCheckAll = () => {
   const { setValue } = useFormContext()
-  const { isAllChecked, handleAllCheckClick } = useCheckStore()
+  const isAllChecked = useAllChecked()
+  const { handleAllCheckClick } = useCheckListActions()
 
   const onAllCheckClick = () => {
+    const sections = ['personal', 'notification', 'location']
+    sections.forEach((section) => setValue(section, !isAllChecked))
     handleAllCheckClick()
-    const allSections = ['personal', 'notification', 'location'] as const
-    allSections.forEach((section) => {
-      setValue(section, !isAllChecked)
-    })
   }
 
-  const isCheckStyle = isAllChecked ? 'bg-green-1' : 'white'
-
   return (
-    <>
-      <input type="checkbox" id="all" className="peer hidden" />
-      <label
-        htmlFor="all"
-        className={`cursor-pointer rounded-xl border border-gray-3 ${isCheckStyle}`}
-      >
-        <button
-          type="button"
-          className="flexAlign size-full gap-2 px-5 py-[14px]"
-          onClick={onAllCheckClick}
-        >
-          <Image src={isAllChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
-          <p className="headline-B mr-auto text-gray-8">전체 동의</p>
-          <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
-        </button>
-      </label>
-    </>
+    <button
+      type="button"
+      className={`rounded-xl  px-5 py-[14px] ${isAllChecked ? 'bg-mint-1' : 'border border-gray-3 bg-white'}`}
+      onClick={onAllCheckClick}
+    >
+      <div className="flexAlign gap-2 rounded-xl">
+        <Image src={isAllChecked ? checkImg : nonCheckImg} width={28} height={28} alt="check" />
+        <p className="headline-B mr-auto text-gray-8">전체 동의</p>
+        <Image src={arrowImg} width={28} height={28} alt="arrow-right" />
+      </div>
+    </button>
   )
 }
 

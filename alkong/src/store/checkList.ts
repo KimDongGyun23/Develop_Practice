@@ -1,40 +1,42 @@
 import { create } from 'zustand'
 
-const checkListObj = { personal: false, notification: false, location: false }
-type CheckListKeys = keyof typeof checkListObj
+type SectionType = 'personal' | 'notification' | 'location'
 
-interface CheckStore {
-  checkedSections: CheckListKeys[]
-  isAllChecked: boolean
-  handleCheckClick: (section: CheckListKeys) => void
+interface Actions {
+  handleCheckClick: (section: SectionType) => void
   handleAllCheckClick: () => void
 }
 
-export const useCheckStore = create<CheckStore>((set, get) => ({
-  checkedSections: [],
+interface CheckListStore {
+  checkList: { personal: boolean; notification: boolean; location: boolean }
+  isAllChecked: boolean
+  actions: Actions
+}
+
+const initialCheckList = { personal: false, notification: false, location: false }
+
+export const useCheckListStore = create<CheckListStore>((set, get) => ({
+  checkList: initialCheckList,
   isAllChecked: false,
+  actions: {
+    handleCheckClick: (section: SectionType) => {
+      const { checkList } = get()
+      const newCheckList = { ...checkList, [section]: !checkList[section] }
+      const allChecked = Object.values(newCheckList).every((value) => value === true)
 
-  handleCheckClick: (section: CheckListKeys) => {
-    const { checkedSections } = get()
-    const isChecked = checkedSections.includes(section)
-    const updatedCheckedSections = isChecked
-      ? checkedSections.filter((item) => item !== section)
-      : [...checkedSections, section]
+      set(() => ({ checkList: newCheckList, isAllChecked: allChecked }))
+    },
 
-    set({ checkedSections: updatedCheckedSections })
+    handleAllCheckClick: () => {
+      const { isAllChecked } = get()
+      const allChecked = { personal: true, notification: true, location: true }
 
-    const allChecked = updatedCheckedSections.length === Object.keys(checkListObj).length
-    set({ isAllChecked: allChecked })
-  },
-
-  handleAllCheckClick: () => {
-    const { checkedSections } = get()
-    const allSections = Object.keys(checkListObj) as CheckListKeys[]
-
-    if (checkedSections.length === allSections.length) {
-      set({ checkedSections: [], isAllChecked: false })
-    } else {
-      set({ checkedSections: allSections, isAllChecked: true })
-    }
+      if (isAllChecked) set({ checkList: initialCheckList, isAllChecked: false })
+      else set({ checkList: allChecked, isAllChecked: true })
+    },
   },
 }))
+
+export const useCheckList = () => useCheckListStore((state) => state.checkList)
+export const useAllChecked = () => useCheckListStore((state) => state.isAllChecked)
+export const useCheckListActions = () => useCheckListStore((state) => state.actions)
