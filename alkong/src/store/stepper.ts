@@ -18,7 +18,7 @@ export const useStepperStore = create<StepperStore>((set) => ({
       set(() => ({ count: init }))
     },
     handleDecrease: () => {
-      set((state) => ({ count: state.count - 1 }))
+      set((state) => ({ count: state.count > 0 ? state.count - 1 : state.count }))
     },
 
     handleIncrease: () => {

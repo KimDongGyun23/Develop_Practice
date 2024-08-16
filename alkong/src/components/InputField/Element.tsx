@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
 
-import arrowImg from '/public/image/arrow-right__green.svg'
+import arrowImg from '/public/image/arrow-right__gray.svg'
 
 interface ISelectedTextWithArrow {
   isFull?: boolean
@@ -19,7 +19,7 @@ export const SelectedTextWithArrow = ({
 
   return (
     <div className={`${flexStyle}`}>
-      <p className="body-M text-[#959595]">{children}</p>
+      <p className="headline-M text-[#959595]">{children}</p>
       <Image
         src={arrowImg}
         width={28}

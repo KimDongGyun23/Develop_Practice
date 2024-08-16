@@ -8,10 +8,10 @@ import circleAddImg from '/public/image/add-circle__green.svg'
 import circleMinusImg from '/public/image/minus-circle__green.svg'
 
 interface IInputStepper {
-  initial: number
+  initial?: number
 }
 
-const Stepper = ({ initial }: IInputStepper) => {
+const Stepper = ({ initial = 0 }: IInputStepper) => {
   const count = useStepperCount()
   const { handleIncrease, handleDecrease, setInitialCount } = useStepperActions()
 
