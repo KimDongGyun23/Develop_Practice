@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Input from "@/components/input/Input";
 import Loader from "@/components/loader/Loader";
 import AutoSignInCheckbox from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
+import Divider from "@/components/divider/Divider";
 
 const LoginClient = () => {
   const [email, setEmail] = useState("");
@@ -71,7 +72,10 @@ const LoginClient = () => {
 
             <div className={styles.buttonGroup}>
               {/* Button */}
-
+              button
+              <Divider />
+              button
+              <Divider />
               <div>{/* Button */}</div>
             </div>
           </form>
