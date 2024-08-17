@@ -8,8 +8,9 @@ import arrowImg from '/public/image/arrow-left__gray.svg'
 import closeImg from '/public/image/close__gray.svg'
 
 interface IEdit {
+  isSubmit?: boolean
   handleCancle: () => void
-  handleComplete: () => void
+  handleComplete?: () => void
   children: React.ReactNode
 }
 
@@ -18,14 +19,23 @@ interface IClose {
   children: React.ReactNode
 }
 
-export const SubHeaderEdit = ({ handleCancle, handleComplete, children }: IEdit) => {
+export const SubHeaderEdit = ({
+  isSubmit = false,
+  handleCancle,
+  handleComplete,
+  children,
+}: IEdit) => {
   return (
     <div className="flex-between-align px-1">
-      <button className="body-B text-gray-6" onClick={handleCancle}>
+      <button type="button" className="body-B text-gray-6" onClick={handleCancle}>
         취소
       </button>
       <span className="subtitle-B text-center">{children}</span>
-      <button className="body-B text-mint-9" onClick={handleComplete}>
+      <button
+        type={isSubmit ? 'submit' : 'button'}
+        className="body-B text-mint-9"
+        onClick={isSubmit ? undefined : handleComplete}
+      >
         완료
       </button>
     </div>
@@ -37,7 +47,7 @@ export const SubHeaderBack = ({ children }: ChildrenProps) => {
   const handleClickBackButton = () => router.back()
   return (
     <div className="flex-between-align">
-      <button onClick={handleClickBackButton}>
+      <button type="button" onClick={handleClickBackButton}>
         <Image src={arrowImg} width={36} height={36} alt="back-button" />
       </button>
       <span className="subtitle-B text-center">{children}</span>
@@ -51,7 +61,7 @@ export const SubHeaderClose = ({ handleClose, children }: IClose) => {
     <div className="flex-between-align">
       <div className="size-7" />
       <span className="subtitle-B text-center">{children}</span>
-      <button onClick={handleClose}>
+      <button type="button" onClick={handleClose}>
         <Image src={closeImg} width={28} height={28} alt="close-button" />
       </button>
     </div>

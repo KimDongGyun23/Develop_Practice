@@ -1,25 +1,32 @@
 'use client'
 
-import { FormProvider, useForm } from 'react-hook-form'
+import { FormProvider } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 
 import { InputField, Label, Stepper, SubHeaderEdit } from '@/components'
+import { useMedicineForm } from '@/hooks/schema/useMedicineForm'
 
 const AddForm = () => {
-  const formMethod = useForm()
+  const router = useRouter()
+  const formMethod = useMedicineForm()
   const { handleSubmit } = formMethod
-  const handleSubmitAddMedicine = () => {}
+  const handleSubmitAddMedicine = (formData) => {
+    console.log('submit')
+    console.log(formData)
+  }
 
   return (
     <div className="mx-5">
-      <SubHeaderEdit handleCancle={() => {}} handleComplete={() => {}}>
-        복용약 추가
-      </SubHeaderEdit>
-
       <FormProvider {...formMethod}>
-        <form className="flex-column my-10 gap-6" onSubmit={handleSubmit(handleSubmitAddMedicine)}>
+        <form className="flex-column mb-10 gap-6" onSubmit={handleSubmit(handleSubmitAddMedicine)}>
+          <SubHeaderEdit isSubmit handleCancle={() => router.back()}>
+            복용약 추가
+          </SubHeaderEdit>
+
           <InputField>
             <Label>약품명</Label>
-            <InputField.Input section="name" placeholder="약품명을 입력해주세요." />
+            <InputField.Input section="medicine_name" placeholder="약품명을 입력해주세요." />
+            <InputField.ErrorMessage section="medicine_name" />
           </InputField>
 
           <InputField>
