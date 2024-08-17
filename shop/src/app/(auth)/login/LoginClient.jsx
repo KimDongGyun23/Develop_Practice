@@ -4,6 +4,7 @@ import styles from "./Auth.module.scss";
 import Image from "next/image";
 import LogoPath from "@/assets/colorful.svg";
 import { useRouter } from "next/navigation";
+import Input from "@/components/input/Input";
 
 const LoginClient = () => {
   const [email, setEmail] = useState("");
@@ -33,6 +34,29 @@ const LoginClient = () => {
 
         <form onSubmit={loginUser} className={styles.form}>
           {/* Input */}
+          <Input
+            email
+            icon="letter"
+            id="email"
+            name="email"
+            label="이메일"
+            placeholder="아이디(이메일)"
+            className={styles.control}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <Input
+            password
+            icon="lock"
+            id="password"
+            name="password"
+            label="비밀번호"
+            placeholder="비밀번호"
+            className={styles.control}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <div className={styles.group}>{/* 자동 로그인, 비밀번호 수정 */}</div>
 
           <div className={styles.buttonGroup}>
