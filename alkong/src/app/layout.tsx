@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="ko" className={notoSansKR.className}>
       <head />
       <body className="flex-center font-medium">
-        <div className="relative h-svh w-full min-w-[320px] max-w-[450px] overflow-y-scroll border-x">
+        <div className="relative h-svh w-full min-w-[320px] max-w-[450px] overflow-y-scroll border-x scrollbar-hide">
           {children}
         </div>
       </body>
