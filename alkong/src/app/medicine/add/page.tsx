@@ -2,7 +2,7 @@ import AddForm from './_components/AddForm'
 
 const page = () => {
   return (
-    <div className="px-5">
+    <div>
       <AddForm />
     </div>
   )
