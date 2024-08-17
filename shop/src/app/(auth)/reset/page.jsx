@@ -1,5 +1,7 @@
+import ResetClient from "./ResetClient";
+
 const Reset = () => {
-  return <div>Reset</div>;
+  return <ResetClient />;
 };
 
 export default Reset;
