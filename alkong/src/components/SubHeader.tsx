@@ -1,28 +1,59 @@
 'use client'
-
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 import type { ChildrenProps } from '@/types/common'
 
 import arrowImg from '/public/image/arrow-left__gray.svg'
+import closeImg from '/public/image/close__gray.svg'
 
-interface ISubHeader {
-  edit?: boolean
+interface IEdit {
+  handleCancle: () => void
+  handleComplete: () => void
+  children: React.ReactNode
 }
 
-const LeftSide = ({ edit = false }: ISubHeader) => {
-  if (edit) return <p className="body-B ml-6 text-gray-6">취소</p>
-  else return <Image src={arrowImg} width={36} height={36} className="ml-4" alt="back-button" />
+interface IClose {
+  handleClose: () => void
+  children: React.ReactNode
 }
 
-const SubHeader = ({ edit = false, children }: ChildrenProps & ISubHeader) => {
+export const SubHeaderEdit = ({ handleCancle, handleComplete, children }: IEdit) => {
   return (
-    <div className="flex-between-align relative h-9">
-      <LeftSide edit={edit} />
-      <span className="subtitle-B absolute inset-x-0 text-center">{children}</span>
-      {edit && <p className="body-B mr-6 text-mint-9">완료</p>}
+    <div className="flex-between-align px-1">
+      <button className="body-B text-gray-6" onClick={handleCancle}>
+        취소
+      </button>
+      <span className="subtitle-B text-center">{children}</span>
+      <button className="body-B text-mint-9" onClick={handleComplete}>
+        완료
+      </button>
     </div>
   )
 }
 
-export default SubHeader
+export const SubHeaderBack = ({ children }: ChildrenProps) => {
+  const router = useRouter()
+  const handleClickBackButton = () => router.back()
+  return (
+    <div className="flex-between-align">
+      <button onClick={handleClickBackButton}>
+        <Image src={arrowImg} width={36} height={36} alt="back-button" />
+      </button>
+      <span className="subtitle-B text-center">{children}</span>
+      <div className="size-9" />
+    </div>
+  )
+}
+
+export const SubHeaderClose = ({ handleClose, children }: IClose) => {
+  return (
+    <div className="flex-between-align">
+      <div className="size-7" />
+      <span className="subtitle-B text-center">{children}</span>
+      <button onClick={handleClose}>
+        <Image src={closeImg} width={28} height={28} alt="close-button" />
+      </button>
+    </div>
+  )
+}
