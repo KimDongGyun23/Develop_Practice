@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "../login/Auth.module.scss";
 import Image from "next/image";
-import Input from "@/components/Input/Input";
+import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
 import Divider from "@/components/divider/Divider";
 import Link from "next/link";
