@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 import type { IScrollPicker } from '@/types/common'
 
@@ -17,24 +17,24 @@ const useSlider = ({ list, handleSelectedChange }: IScrollPicker) => {
   const handleScroll = () => {
     if (!containerRef.current) return
 
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
+    // if (timerRef.current) {
+    //   clearTimeout(timerRef.current)
+    // }
+
+    // timerRef.current = setTimeout(() => {
+    const scrollPosition = containerRef.current!.scrollTop
+    const index = Math.floor((scrollPosition + ITEM_HEIGHT / 2) / ITEM_HEIGHT)
+
+    if (index !== selected) {
+      setSelected(index)
+      handleSelectedChange(list[index])
     }
 
-    timerRef.current = setTimeout(() => {
-      const scrollPosition = containerRef.current!.scrollTop
-      const index = Math.floor((scrollPosition + ITEM_HEIGHT / 2) / ITEM_HEIGHT)
-
-      if (index !== selected) {
-        setSelected(index)
-        handleSelectedChange(list[index])
-      }
-
-      itemRefs.current[index]?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      })
-    }, 100)
+    itemRefs.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    })
+    // }, 100)
   }
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -56,13 +56,13 @@ const useSlider = ({ list, handleSelectedChange }: IScrollPicker) => {
     isDraggingRef.current = false
   }
 
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current)
-      }
-    }
-  }, [])
+  // useEffect(() => {
+  //   return () => {
+  //     if (timerRef.current) {
+  //       clearTimeout(timerRef.current)
+  //     }
+  //   }
+  // }, [])
 
   return {
     containerRef,
