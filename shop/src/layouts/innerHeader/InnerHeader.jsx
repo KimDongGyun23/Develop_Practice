@@ -96,7 +96,7 @@ const InnerHeader = () => {
             장바구니
           </button>
           <strong className={styles.cartProductCount}>
-            {cartTotalQuantity}
+            {/* {cartTotalQuantity} */}
           </strong>
         </div>
       </div>

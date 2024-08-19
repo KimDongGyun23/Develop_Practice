@@ -11,6 +11,8 @@ import Link from "next/link";
 
 import LogoPath from "@/assets/colorful.svg";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase/firebase";
+import { toast } from "react-toastify";
 
 const RegisterClient = () => {
   const [email, setEmail] = useState("");

@@ -16,6 +16,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
+import { toast } from "react-toastify";
+import { auth } from "@/firebase/firebase";
 
 const LoginClient = () => {
   const [email, setEmail] = useState("");
