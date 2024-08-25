@@ -1,1 +1,1 @@
-export * from '@/constants/slider'
+export * from './zIndex'

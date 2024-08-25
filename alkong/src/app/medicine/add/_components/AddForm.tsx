@@ -4,7 +4,7 @@ import { FormProvider } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 
 import { InputField, Label, Stepper, SubHeaderEdit } from '@/components'
-import { useMedicineForm } from '@/hooks/schema/useMedicineForm'
+import { useMedicineForm } from '../../../../../schema/useMedicineForm'
 
 const AddForm = () => {
   const router = useRouter()

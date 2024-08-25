@@ -3,7 +3,7 @@
 import { FormProvider } from 'react-hook-form'
 
 import { InputField } from '@/components/InputField'
-import { useLoginForm } from '@/hooks/schema/useLoginForm'
+import { useLoginForm } from '../../../../../schema/useLoginForm'
 
 const LoginForm = () => {
   const formMethod = useLoginForm()

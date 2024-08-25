@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { FormProvider } from 'react-hook-form'
 
-import { useSignupForm } from '@/hooks/schema/useSignupForm'
+import { useSignupForm } from '../../../../../schema/useSignupForm'
 
 import { FirstStep, SecondStep, SignupHeader, ThirdStep } from './index'
 

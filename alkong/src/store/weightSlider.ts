@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 
 interface Actions {
+  handleTensWeightChange: (selected: string | number) => void
+  handleOnesWeightChange: (selected: string | number) => void
   handleDecimalWeightChange: (selected: string | number) => void
-  handleIntegerWeightChange: (selected: string | number) => void
   getFormattedWeight: () => string
   resetWeights: () => void
 }
@@ -17,9 +18,13 @@ const initialWeights: [number, number] = [0, 0]
 export const useWeightStore = create<WeightStore>((set, get) => ({
   weights: initialWeights,
   actions: {
-    handleIntegerWeightChange: (selected) =>
+    handleTensWeightChange: (selected) =>
       set((state) => ({
-        weights: [Number(selected), state.weights[1]],
+        weights: [Number(selected) * 10 + (state.weights[0] % 10), state.weights[1]],
+      })),
+    handleOnesWeightChange: (selected) =>
+      set((state) => ({
+        weights: [Math.floor(state.weights[0] / 10) * 10 + Number(selected), state.weights[1]],
       })),
     handleDecimalWeightChange: (selected) =>
       set((state) => ({
