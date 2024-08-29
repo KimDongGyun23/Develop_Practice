@@ -1,7 +1,7 @@
 'use client'
 
+import { InputGroup } from '@/components'
 import Button from '@/components/button/Button'
-import { InputField } from '@/components/InputField'
 
 const ThirdStep = () => {
   return (
@@ -12,16 +12,11 @@ const ThirdStep = () => {
       </div>
 
       <div className="grow">
-        <InputField>
-          <InputField.InputCheck section="personal">개인정보이용 동의 (필수)</InputField.InputCheck>
-          <InputField.InputCheck section="notification">
-            알림 수신 동의 (선택)
-          </InputField.InputCheck>
-          <InputField.InputCheck section="location">
-            위치 기반 서비스 동의 (선택)
-          </InputField.InputCheck>
-          <InputField.InputCheck section="all">전체 동의</InputField.InputCheck>
-        </InputField>
+        <InputGroup>
+          <InputGroup.CheckBox section="personal">개인정보이용 동의 (필수)</InputGroup.CheckBox>
+          <InputGroup.CheckBox section="notification">알림 수신 동의 (선택)</InputGroup.CheckBox>
+          <InputGroup.CheckBoxAll>전체 동의</InputGroup.CheckBoxAll>
+        </InputGroup>
       </div>
 
       <Button primary type="submit">

@@ -7,7 +7,7 @@ import logo from '/public/image/logo-brand.svg'
 
 const page = () => {
   return (
-    <div className="flex-columnAlign h-full justify-center bg-mint-4 px-5">
+    <div className="flex-column-align h-full justify-center bg-mint-4 px-5">
       <Image src={logo} width={160} height={168} alt="logo" className="mb-8" />
       <LoginForm />
       <Link href={'/signup'} className="headline-M text-white">

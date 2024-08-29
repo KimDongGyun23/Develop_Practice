@@ -6,3 +6,5 @@ export interface IScrollPicker {
   list: (string | number)[]
   handleSelectedChange: (selected: string | number) => void
 }
+
+export type CheckBoxSectionType = 'personal' | 'notification'

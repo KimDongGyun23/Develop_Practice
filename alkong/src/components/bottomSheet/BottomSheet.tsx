@@ -1,3 +1,4 @@
+'use client'
 import { type ComponentProps, type MouseEventHandler, useEffect } from 'react'
 import { m, type Variants } from 'framer-motion'
 

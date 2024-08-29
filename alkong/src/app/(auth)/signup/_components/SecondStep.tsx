@@ -3,7 +3,7 @@
 import { type Dispatch, type SetStateAction } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-import { Button, InputField, Label } from '@/components'
+import { Button, InputGroup, Label } from '@/components'
 
 interface IStep {
   setCurrentTab: Dispatch<SetStateAction<number>>
@@ -22,29 +22,29 @@ const SecondStep = ({ setCurrentTab }: IStep) => {
       <p className="title-B mb-6">회원 정보를 입력해주세요!</p>
 
       <div className="flex-column grow gap-4 pb-10">
-        <InputField>
+        <InputGroup>
           <Label>이름</Label>
-          <InputField.Input section="name" placeholder="성명을 입력해주세요." />
-          <InputField.ErrorMessage section="name" />
-        </InputField>
+          <InputGroup.Input section="name" placeholder="성명을 입력해주세요." />
+          <InputGroup.ErrorMessage section="name" />
+        </InputGroup>
 
-        <InputField>
+        <InputGroup>
           <Label>휴대전화번호</Label>
-          <InputField.Input section="phone" placeholder="숫자만 입력해주세요." />
-          <InputField.ErrorMessage section="phone" />
-        </InputField>
+          <InputGroup.Input section="phone" placeholder="숫자만 입력해주세요." />
+          <InputGroup.ErrorMessage section="phone" />
+        </InputGroup>
 
-        <InputField>
+        <InputGroup>
           <Label>생년월일</Label>
-          <InputField.Input section="birth" placeholder="생년월일 8자리를 입력해주세요." />
-          <InputField.ErrorMessage section="birth" />
-        </InputField>
+          <InputGroup.Input section="birth" placeholder="생년월일 8자리를 입력해주세요." />
+          <InputGroup.ErrorMessage section="birth" />
+        </InputGroup>
 
-        <InputField>
+        <InputGroup>
           <Label>성별</Label>
-          <InputField.InputGender />
-          <InputField.ErrorMessage section="gender" />
-        </InputField>
+          <InputGroup.Gender />
+          <InputGroup.ErrorMessage section="gender" />
+        </InputGroup>
       </div>
 
       <Button primary handleClick={handleClickSecondStep}>
