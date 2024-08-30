@@ -36,9 +36,9 @@ export const ArrowRightIcon = (props: IconProps) => {
       <path
         d="M16 8L26 18L16 28"
         stroke={color}
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
