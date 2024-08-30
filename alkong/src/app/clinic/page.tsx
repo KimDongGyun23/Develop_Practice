@@ -1,10 +1,9 @@
-import { Profile } from '@/components'
+import ClinicCalendar from './_components/ClinicCalendar'
 
 const page = () => {
-  const name = '김동균'
   return (
     <section>
-      <Profile name={name} />
+      <ClinicCalendar />
     </section>
   )
 }

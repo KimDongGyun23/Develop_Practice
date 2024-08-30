@@ -1,5 +1,6 @@
 export { default as BottomSheet } from './bottomSheet/BottomSheet'
 export { default as Button } from './button/Button'
+export { default as Calendar } from './calendar/Calendar'
 export { default as Icon } from './icons/index'
 export * from './inputGroup/index'
 export { default as Label } from './label/Label'
