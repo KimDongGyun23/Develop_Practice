@@ -1,10 +1,11 @@
-import ClinicCalendar from './_components/ClinicCalendar'
+import { ClinicCalendar, ClinicList } from '@/feature/clinic'
 
 const page = () => {
   return (
-    <section>
+    <main>
       <ClinicCalendar />
-    </section>
+      <ClinicList />
+    </main>
   )
 }
 
