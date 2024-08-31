@@ -6,6 +6,7 @@ type CalendarActions = {
   goToNextMonth: () => void
   setSelectedDate: (day: number) => void
   updateScheduledDates: (dates: string[]) => void
+  resetCalendar: () => void
 }
 
 type CalendarState = {
@@ -38,6 +39,9 @@ export const useCalendarStore = create<CalendarState>((set, get) => ({
     updateScheduledDates: (dates: string[]) => {
       const uniqueDays = Array.from(new Set(dates.map((date) => dayjs(date).date())))
       set({ scheduledDays: uniqueDays })
+    },
+    resetCalendar: () => {
+      set({ currentDate: initialDate, scheduledDays: [] })
     },
   },
 }))
