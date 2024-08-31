@@ -1,7 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useEffect } from 'react'
 
 import { Calendar, Label, Tag } from '@/components'
+import { useCalendarActions, useCurrentDate } from '@/store/calendarStore'
 
 import ClinicItem from './ClinicItem'
 
@@ -27,15 +28,18 @@ const LIST = [
 ]
 
 const ClinicClientPage = () => {
-  const [date, setDate] = useState<Date>(new Date())
+  const date = useCurrentDate()
   const schedules = LIST.map((item) => item.hospitalDate)
+  const { updateScheduledDates } = useCalendarActions()
 
-  const selectedDateString = date.toISOString().split('T')[0]
+  useEffect(() => {
+    updateScheduledDates(schedules)
+  }, [])
 
   return (
     <>
       <section className="mt-[38px]">
-        <Calendar date={date} setDate={setDate} schedules={schedules} />
+        <Calendar />
       </section>
 
       <section className="mt-7">
@@ -47,7 +51,7 @@ const ClinicClientPage = () => {
         </div>
 
         <div className="flex-column gap-3">
-          {LIST.filter((item) => item.hospitalDate.startsWith(selectedDateString)).map((item) => (
+          {LIST.filter((item) => item.hospitalDate.startsWith(date)).map((item) => (
             <ClinicItem
               key={item.medicalId}
               hospitalName={item.hospitalName}
