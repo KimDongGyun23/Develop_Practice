@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 import { Calendar, Label, Tag } from '@/components'
 
+import ClinicItem from './ClinicItem'
+
 const LIST = [
   {
     medicalId: 0,
@@ -28,6 +30,8 @@ const ClinicClientPage = () => {
   const [date, setDate] = useState<Date>(new Date())
   const schedules = LIST.map((item) => item.hospitalDate)
 
+  const selectedDateString = date.toISOString().split('T')[0]
+
   return (
     <>
       <section className="mt-[38px]">
@@ -40,6 +44,17 @@ const ClinicClientPage = () => {
           <Tag.Plus primary handleClick={() => {}}>
             추가
           </Tag.Plus>
+        </div>
+
+        <div className="flex-column gap-3">
+          {LIST.filter((item) => item.hospitalDate.startsWith(selectedDateString)).map((item) => (
+            <ClinicItem
+              key={item.medicalId}
+              hospitalName={item.hospitalName}
+              hospitalDate={item.hospitalDate}
+              medicalPart={item.medicalPart}
+            />
+          ))}
         </div>
       </section>
     </>
