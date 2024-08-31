@@ -2,9 +2,9 @@
 import { useEffect } from 'react'
 
 import { Calendar, Label, Tag } from '@/components'
-import { useCalendarActions, useCurrentDate } from '@/store/calendarStore'
+import { useCalendarActions } from '@/store/calendarStore'
 
-import ClinicItem from './ClinicItem'
+import ClinicList from './ClinicList'
 
 const LIST = [
   {
@@ -28,11 +28,11 @@ const LIST = [
 ]
 
 const ClinicClientPage = () => {
-  const date = useCurrentDate()
   const schedules = LIST.map((item) => item.hospitalDate)
-  const { updateScheduledDates } = useCalendarActions()
+  const { resetCalendar, updateScheduledDates } = useCalendarActions()
 
   useEffect(() => {
+    resetCalendar()
     updateScheduledDates(schedules)
   }, [])
 
@@ -50,16 +50,7 @@ const ClinicClientPage = () => {
           </Tag.Plus>
         </div>
 
-        <div className="flex-column gap-3">
-          {LIST.filter((item) => item.hospitalDate.startsWith(date)).map((item) => (
-            <ClinicItem
-              key={item.medicalId}
-              hospitalName={item.hospitalName}
-              hospitalDate={item.hospitalDate}
-              medicalPart={item.medicalPart}
-            />
-          ))}
-        </div>
+        <ClinicList list={LIST} />
       </section>
     </>
   )
