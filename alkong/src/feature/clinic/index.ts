@@ -1,2 +1,2 @@
-export { default as ClinicCalendar } from './ClinicCalendar'
+export { default as ClinicClientPage } from './ClinicClientPage'
 export { default as ClinicList } from './ClinicList'

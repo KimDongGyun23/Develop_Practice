@@ -1,11 +1,10 @@
-import { ClinicCalendar, ClinicList } from '@/feature/clinic'
+import { ClinicClientPage } from '@/feature/clinic'
 
 const page = () => {
   return (
-    <main>
-      <ClinicCalendar />
-      <ClinicList />
-    </main>
+    <>
+      <ClinicClientPage />
+    </>
   )
 }
 
