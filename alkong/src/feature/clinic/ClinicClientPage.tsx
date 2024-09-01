@@ -25,6 +25,12 @@ const LIST = [
     hospitalDate: '2024-08-11 17:05:30',
     medicalPart: ['다리 골절', '깁스'],
   },
+  {
+    medicalId: 3,
+    hospitalName: '정형외과',
+    hospitalDate: '2024-09-07 07:00:00',
+    medicalPart: ['허리 디스크'],
+  },
 ]
 
 const ClinicClientPage = () => {

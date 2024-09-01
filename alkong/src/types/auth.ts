@@ -1,3 +1,9 @@
+export type User = {
+  username: string
+  userId: string
+  family?: User[]
+}
+
 export type LoginFormType = {
   id: string
   password: string
