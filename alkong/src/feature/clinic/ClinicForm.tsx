@@ -1,10 +1,12 @@
 'use client'
 import { FormProvider } from 'react-hook-form'
 
-import { BottomSheet, InputGroup, Label, Tag } from '@/components'
+import { InputGroup, Label, Tag } from '@/components'
 import { useToggle } from '@/hooks'
 import { useClinicForm } from '@/schema/useClinicForm'
 import type { ClinicFormType } from '@/types'
+
+import { DateBottomSheet, TagBottomSheet } from '.'
 
 const ClinicForm = () => {
   const formMethod = useClinicForm()
@@ -29,9 +31,11 @@ const ClinicForm = () => {
             <Tag.Plus handleClick={toggleTagBottomSheet}>추가</Tag.Plus>
           </div>
           <InputGroup.ErrorMessage section="medicalPart" />
-          <BottomSheet isShowing={tagBottomSheet} onClickScrim={toggleTagBottomSheet}>
-            <div>dd</div>
-          </BottomSheet>
+          <TagBottomSheet
+            section="medicalPart"
+            isShowing={tagBottomSheet}
+            onClickScrim={toggleTagBottomSheet}
+          />
         </InputGroup>
 
         <InputGroup>
@@ -44,6 +48,11 @@ const ClinicForm = () => {
             />
           </button>
           <InputGroup.ErrorMessage section="hospitalDate" />
+          <DateBottomSheet
+            section="hospitalDate"
+            isShowing={dateBottomSheet}
+            onClickScrim={toggleDateBottomSheet}
+          />
         </InputGroup>
 
         <InputGroup>
@@ -65,6 +74,8 @@ const ClinicForm = () => {
           </div>
           <InputGroup.ErrorMessage section="medicalAlarm" />
         </InputGroup>
+
+        <button type="submit">d</button>
       </form>
     </FormProvider>
   )

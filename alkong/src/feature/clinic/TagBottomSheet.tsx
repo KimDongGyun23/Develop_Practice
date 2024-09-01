@@ -75,7 +75,7 @@ const TagBottomSheet = ({ section, isShowing, onClickScrim }: TagBottomSheetProp
       <div className="mt-10">
         <Label icon="check-label">진료 과목을 선택해주세요.</Label>
 
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           <ToggledTagList selectedTags={selectedTags} onClick={handleClickTag} />
         </div>
       </div>
