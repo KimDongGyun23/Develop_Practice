@@ -9,14 +9,14 @@ const DateBoxColors = {
   default: '',
 }
 
-type validateDateBoxColorType = (date: string, indexOfDate: number, schedules: number[]) => string
+type validateDateBoxColorType = (date: string, indexOfDate: number, schedules: string[]) => string
 
 export const validateDateBoxColor: validateDateBoxColorType = (date, indexOfDate, schedules) => {
   const currentMonthYear = dayjs(date).format('YYYY-MM')
   const currentDate = dayjs(`${currentMonthYear}-${indexOfDate}`)
 
   if (dayjs(date).date() === indexOfDate) return DateBoxColors['active']
-  if (schedules.includes(indexOfDate)) return DateBoxColors['schedule']
+  if (schedules.includes(currentDate.format('YYYY-MM-DD'))) return DateBoxColors['schedule']
   if (currentDate.day() === 0) return DateBoxColors['sunday']
   if (currentDate.day() === 6) return DateBoxColors['saturday']
 
