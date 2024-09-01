@@ -6,7 +6,7 @@ import { useToggle } from '@/hooks'
 import { useClinicForm } from '@/schema/useClinicForm'
 import type { ClinicFormType } from '@/types'
 
-import { DateBottomSheet, TagBottomSheet } from '.'
+import { AlarmBottomSheet, DateBottomSheet, TagBottomSheet } from '.'
 
 const ClinicForm = () => {
   const formMethod = useClinicForm()
@@ -73,6 +73,11 @@ const ClinicForm = () => {
             <InputGroup.TextWithArrow section="medicalAlarm" onClick={toggleAlarmBottomSheet} />
           </div>
           <InputGroup.ErrorMessage section="medicalAlarm" />
+          <AlarmBottomSheet
+            section="medicalAlarm"
+            isShowing={alarmBottomSheet}
+            onClickScrim={toggleAlarmBottomSheet}
+          />
         </InputGroup>
 
         <button type="submit">d</button>

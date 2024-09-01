@@ -1,3 +1,4 @@
+export { default as AlarmBottomSheet } from './AlarmBottomSheet'
 export { default as ClinicItem } from './ClinicItem'
 export { default as ClinicList } from './ClinicList'
 export { default as ClinicClientPage } from './DateBottomSheet'
