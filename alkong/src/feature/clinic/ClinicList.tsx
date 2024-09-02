@@ -15,6 +15,7 @@ const ClinicList = ({ list }: ClinicListProps) => {
         .map((item) => (
           <ClinicItem
             key={item.medicalId}
+            medicalId={item.medicalId}
             hospitalName={item.hospitalName}
             hospitalDate={item.hospitalDate}
             medicalPart={item.medicalPart}

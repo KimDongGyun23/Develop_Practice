@@ -6,11 +6,24 @@ import { useToggle } from '@/hooks'
 
 import { AlarmBottomSheet, DateBottomSheet, TagBottomSheet } from '.'
 
-const ClinicForm = () => {
+type ClinicFormProps = {
+  isReadOnly?: boolean
+}
+
+const ClinicForm = ({ isReadOnly = false }: ClinicFormProps) => {
   const { getValues } = useFormContext()
+
   const [tagBottomSheet, toggleTagBottomSheet] = useToggle(false)
   const [dateBottomSheet, toggleDateBottomSheet] = useToggle(false)
   const [alarmBottomSheet, toggleAlarmBottomSheet] = useToggle(false)
+
+  const handleToggleDateBottomSheet = () => {
+    if (!isReadOnly) toggleDateBottomSheet()
+  }
+
+  const handleToggleAlarmBottomSheet = () => {
+    if (!isReadOnly) toggleAlarmBottomSheet()
+  }
 
   return (
     <>
@@ -20,7 +33,7 @@ const ClinicForm = () => {
           {getValues('medicalPart').map((part: string) => (
             <Tag key={part}>{part}</Tag>
           ))}
-          <Tag.Plus handleClick={toggleTagBottomSheet}>추가</Tag.Plus>
+          {!isReadOnly && <Tag.Plus handleClick={toggleTagBottomSheet}>추가</Tag.Plus>}
         </div>
         <InputGroup.ErrorMessage section="medicalPart" />
         <TagBottomSheet
@@ -32,7 +45,7 @@ const ClinicForm = () => {
 
       <InputGroup>
         <Label icon="calendar-label">방문 날짜</Label>
-        <button type="button" onClick={toggleDateBottomSheet}>
+        <button type="button" onClick={handleToggleDateBottomSheet}>
           <InputGroup.Input
             section="hospitalDate"
             readOnly
@@ -43,32 +56,40 @@ const ClinicForm = () => {
         <DateBottomSheet
           section="hospitalDate"
           isShowing={dateBottomSheet}
-          onClickScrim={toggleDateBottomSheet}
+          onClickScrim={handleToggleDateBottomSheet}
         />
       </InputGroup>
 
       <InputGroup>
         <Label icon="clinic-label">방문 병원</Label>
-        <InputGroup.Input section="hospitalName" placeholder="병원을 입력해주세요." />
+        <InputGroup.Input
+          section="hospitalName"
+          placeholder="병원을 입력해주세요."
+          readOnly={isReadOnly}
+        />
         <InputGroup.ErrorMessage section="hospitalName" />
       </InputGroup>
 
       <InputGroup>
         <Label icon="emergency-label">증상 및 특이사항</Label>
-        <InputGroup.TextArea section="medicalMemo" placeholder="증상을 입력해주세요." />
+        <InputGroup.TextArea
+          section="medicalMemo"
+          placeholder="증상을 입력해주세요."
+          readOnly={isReadOnly}
+        />
       </InputGroup>
 
       <InputGroup>
         <Label icon="time-label">알람</Label>
         <div className="flex-between-align w-full rounded-xl border border-mint-3 px-6 py-4">
           <Label>알람</Label>
-          <InputGroup.TextWithArrow section="medicalAlarm" onClick={toggleAlarmBottomSheet} />
+          <InputGroup.TextWithArrow section="medicalAlarm" onClick={handleToggleAlarmBottomSheet} />
         </div>
         <InputGroup.ErrorMessage section="medicalAlarm" />
         <AlarmBottomSheet
           section="medicalAlarm"
           isShowing={alarmBottomSheet}
-          onClickScrim={toggleAlarmBottomSheet}
+          onClickScrim={handleToggleAlarmBottomSheet}
         />
       </InputGroup>
     </>
