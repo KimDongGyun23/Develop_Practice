@@ -1,5 +1,6 @@
 'use client'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { Calendar, Label, Tag } from '@/components'
 import { useCalendarActions } from '@/store/calendarStore'
@@ -34,8 +35,13 @@ const LIST = [
 ]
 
 const ClinicClientPage = () => {
+  const router = useRouter()
   const schedules = LIST.map((item) => item.hospitalDate)
   const { resetCalendar, updateScheduledDates } = useCalendarActions()
+
+  const handleClickPlusButton = () => {
+    router.push('clinic/write-pull')
+  }
 
   useEffect(() => {
     resetCalendar()
@@ -51,7 +57,7 @@ const ClinicClientPage = () => {
       <section className="mt-7">
         <div className="flex-between mb-3">
           <Label icon="clinic-label">병원 내원 일정</Label>
-          <Tag.Plus primary handleClick={() => {}}>
+          <Tag.Plus primary handleClick={handleClickPlusButton}>
             추가
           </Tag.Plus>
         </div>

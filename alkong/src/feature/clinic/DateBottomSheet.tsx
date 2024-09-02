@@ -1,8 +1,10 @@
+'use client'
+import { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 import dayjs from 'dayjs'
 
 import { BottomSheet, Calendar, Label, SubHeader, TimeSlider } from '@/components'
-import { useCurrentDate } from '@/store/calendarStore'
+import { useCalendarActions, useCurrentDate } from '@/store/calendarStore'
 import { useSelectedTime } from '@/store/timeStore'
 
 type DateBottomSheetProps = {
@@ -12,7 +14,8 @@ type DateBottomSheetProps = {
 }
 
 const DateBottomSheet = ({ section, isShowing, onClickScrim }: DateBottomSheetProps) => {
-  const { getValues, setValue } = useFormContext()
+  const { setValue } = useFormContext()
+  const { resetCalendar } = useCalendarActions()
   const selectedDate = useCurrentDate()
   const selectedTime = useSelectedTime()
 
@@ -23,6 +26,10 @@ const DateBottomSheet = ({ section, isShowing, onClickScrim }: DateBottomSheetPr
     setValue(section, formattedDate)
     onClickScrim()
   }
+
+  useEffect(() => {
+    resetCalendar()
+  }, [])
 
   return (
     <BottomSheet isShowing={isShowing} onClickScrim={onClickScrim}>
