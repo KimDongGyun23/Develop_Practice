@@ -7,7 +7,7 @@ import type { ClinicFormType } from '@/types'
 
 import ClinicForm from './ClinicForm'
 
-const ClientWritePullPage = () => {
+const ClientWritePage = () => {
   const formMethod = useClinicForm()
   const { handleSubmit } = formMethod
 
@@ -33,4 +33,4 @@ const ClientWritePullPage = () => {
   )
 }
 
-export default ClientWritePullPage
+export default ClientWritePage

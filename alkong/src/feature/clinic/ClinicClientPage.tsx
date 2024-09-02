@@ -40,7 +40,7 @@ const ClinicClientPage = () => {
   const { resetCalendar, updateScheduledDates } = useCalendarActions()
 
   const handleClickPlusButton = () => {
-    router.push('clinic/write-pull')
+    router.push('clinic/write')
   }
 
   useEffect(() => {
