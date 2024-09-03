@@ -1,9 +1,10 @@
 'use client'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import dayjs from 'dayjs'
 
 import { Calendar, Label, Tag } from '@/components'
-import { useCalendarActions } from '@/store/calendarStore'
+import { useCalendarActions, useCurrentDate } from '@/store/calendarStore'
 
 import ClinicList from './ClinicList'
 
@@ -36,6 +37,8 @@ const LIST = [
 
 const ClinicClientPage = () => {
   const router = useRouter()
+  const date = useCurrentDate()
+  const selectedMonth = dayjs(date).format('YYYY-MM')
   const schedules = LIST.map((item) => item.hospitalDate)
   const { resetCalendar, updateScheduledDates } = useCalendarActions()
 
@@ -44,9 +47,10 @@ const ClinicClientPage = () => {
   }
 
   useEffect(() => {
+    console.log('render')
     resetCalendar()
     updateScheduledDates(schedules)
-  }, [])
+  }, [selectedMonth])
 
   return (
     <>
