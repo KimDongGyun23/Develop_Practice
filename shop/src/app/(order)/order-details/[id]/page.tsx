@@ -1,4 +1,5 @@
 import React from 'react'
+
 import OrderDetailsClient from './OrderDetailsClient'
 
 const OrderDetails = () => {

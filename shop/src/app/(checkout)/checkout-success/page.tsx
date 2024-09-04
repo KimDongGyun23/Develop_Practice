@@ -1,10 +1,12 @@
-import Heading from '@/components/heading/Heading'
 import React from 'react'
-import styles from './CheckoutSuccess.module.scss'
-import priceFormat from '@/utils/priceFormat'
-import { formatTime } from '@/utils/dayjs'
-import Button from '@/components/button/Button'
 import Link from 'next/link'
+
+import Button from '@/components/button/Button'
+import Heading from '@/components/heading/Heading'
+import { formatTime } from '@/utils/dayjs'
+import priceFormat from '@/utils/priceFormat'
+
+import styles from './CheckoutSuccess.module.scss'
 
 interface ICheckoutSuccessProps {
   searchParams: {

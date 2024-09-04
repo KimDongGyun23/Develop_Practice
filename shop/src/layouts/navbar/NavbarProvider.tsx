@@ -1,8 +1,9 @@
 'use client'
 import React from 'react'
-import styles from './NavbarProvider.module.scss'
 import { usePathname } from 'next/navigation'
+
 import Navbar from './Navbar'
+import styles from './NavbarProvider.module.scss'
 
 const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname()

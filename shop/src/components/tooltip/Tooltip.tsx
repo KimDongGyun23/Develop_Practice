@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from './Tooltip.module.scss'
 import classNames from 'classnames'
+
+import styles from './Tooltip.module.scss'
 
 interface ITooltipProps {
   top?: number

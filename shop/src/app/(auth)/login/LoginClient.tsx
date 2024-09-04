@@ -1,20 +1,20 @@
 'use client'
-import Image from 'next/image'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 
 import LogoPath from '@/assets/colorful.svg'
-import { useRouter } from 'next/navigation'
+import AutoSignInCheckbox from '@/components/autoSignInCheckbox/AutoSignInCheckbox'
+import Button from '@/components/button/Button'
+import Divider from '@/components/divider/Divider'
+import Input from '@/components/Input/Input'
+import Loader from '@/components/loader/Loader'
+import { auth } from '@/firebase/firebase'
 
 import styles from './Auth.module.scss'
-import Loader from '@/components/loader/Loader'
-import Input from '@/components/Input/Input'
-import AutoSignInCheckbox from '@/components/autoSignInCheckbox/AutoSignInCheckbox'
-import Divider from '@/components/divider/Divider'
-import Button from '@/components/button/Button'
-import Link from 'next/link'
-import { toast } from 'react-toastify'
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
-import { auth } from '@/firebase/firebase'
 
 const LoginClient = () => {
   const [email, setEmail] = useState('')

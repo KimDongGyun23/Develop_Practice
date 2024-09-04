@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './ProductReviewItem.module.scss'
 import { Rating } from 'react-simple-star-rating'
-import dayjs from 'dayjs'
+
 import { formatTime } from '@/utils/dayjs'
+
+import styles from './ProductReviewItem.module.scss'
 
 interface IProductReviewItemProps {
   rate: number

@@ -1,7 +1,10 @@
+import type { ChangeEvent } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
-import React, { ChangeEvent, useState } from 'react'
-import styles from './Input.module.scss'
+
 import Icon from '../icon/Icon'
+
+import styles from './Input.module.scss'
 
 interface IInputProps {
   id: string

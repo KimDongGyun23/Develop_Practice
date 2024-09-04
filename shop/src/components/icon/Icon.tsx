@@ -1,10 +1,10 @@
 import React from 'react'
+import Image from 'next/image'
 
+import hidePath from './images/shape=hide.svg'
 import letterPath from './images/shape=letter.svg'
 import lockPath from './images/shape=lock.svg'
 import showPath from './images/shape=show.svg'
-import hidePath from './images/shape=hide.svg'
-import Image from 'next/image'
 
 interface IIconProps {
   type: 'letter' | 'lock' | 'show' | 'hide'

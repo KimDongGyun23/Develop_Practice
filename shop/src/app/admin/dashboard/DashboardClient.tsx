@@ -1,22 +1,24 @@
 'use client'
 import React, { useEffect } from 'react'
-import styles from './Dashboard.module.scss'
 import { AiFillDollarCircle } from 'react-icons/ai'
 import { BsCart4 } from 'react-icons/bs'
 import { FaCartArrowDown } from 'react-icons/fa'
-import useFetchCollection from '@/hooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
-import { STORE_PRODUCTS } from '@/redux/slice/productSlice'
-import {
-  CALCULATE_TOTAL_ORDER_AMOUNT,
-  STORE_ORDERS,
-  selectOrderHistory,
-  selectTotalOrderAmount,
-} from '@/redux/slice/orderSlice'
+
+import Chart from '@/components/chart/Chart'
 import Heading from '@/components/heading/Heading'
 import InfoBox from '@/components/InfoBox/InfoBox'
+import useFetchCollection from '@/hooks/useFetchCollection'
+import {
+  CALCULATE_TOTAL_ORDER_AMOUNT,
+  selectOrderHistory,
+  selectTotalOrderAmount,
+  STORE_ORDERS,
+} from '@/redux/slice/orderSlice'
+import { STORE_PRODUCTS } from '@/redux/slice/productSlice'
 import priceFormat from '@/utils/priceFormat'
-import Chart from '@/components/chart/Chart'
+
+import styles from './Dashboard.module.scss'
 
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />
 const productIcon = <BsCart4 size={30} color="#1f93ff" />

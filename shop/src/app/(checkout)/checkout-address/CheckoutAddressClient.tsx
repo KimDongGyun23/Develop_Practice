@@ -1,11 +1,14 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useState } from 'react'
-import styles from './CheckoutAddress.module.scss'
+import type { ChangeEvent, FormEvent } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
-import { SAVE_BILLING_ADDRESS, SAVE_SHIPPING_ADDRESS } from '@/redux/slice/checkoutSlice'
-import Heading from '@/components/heading/Heading'
+
 import Button from '@/components/button/Button'
+import Heading from '@/components/heading/Heading'
+import { SAVE_BILLING_ADDRESS, SAVE_SHIPPING_ADDRESS } from '@/redux/slice/checkoutSlice'
+
+import styles from './CheckoutAddress.module.scss'
 
 const initialAddressState = {
   name: '',

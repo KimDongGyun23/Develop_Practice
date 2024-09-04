@@ -1,3 +1,7 @@
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Link from 'next/link'
+
 import {
   CALCULATE_SUBTOTAL,
   CALCULATE_TOTAL_QUANTITY,
@@ -5,11 +9,9 @@ import {
   selectCartTotalAmount,
   selectCartTotalQuantity,
 } from '@/redux/slice/cartSlice'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import styles from './CheckoutForm.module.scss'
-import Link from 'next/link'
 import priceFormat from '@/utils/priceFormat'
+
+import styles from './CheckoutForm.module.scss'
 
 const CheckoutForm = () => {
   const cartItems = useSelector(selectCartItems)

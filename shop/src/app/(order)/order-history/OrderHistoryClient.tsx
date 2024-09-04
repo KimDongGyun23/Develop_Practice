@@ -1,15 +1,17 @@
 'use client'
 import React, { useEffect } from 'react'
-import styles from './OrderHistory.module.scss'
-import useFetchCollection from '@/hooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
-import { STORE_ORDERS, selectOrderHistory } from '@/redux/slice/orderSlice'
-import { selectUserID } from '@/redux/slice/authSlice'
+import { useRouter } from 'next/navigation'
+
 import Heading from '@/components/heading/Heading'
 import Loader from '@/components/loader/Loader'
+import useFetchCollection from '@/hooks/useFetchCollection'
+import { selectUserID } from '@/redux/slice/authSlice'
+import { selectOrderHistory, STORE_ORDERS } from '@/redux/slice/orderSlice'
 import { formatTime } from '@/utils/dayjs'
 import priceFormat from '@/utils/priceFormat'
-import { useRouter } from 'next/navigation'
+
+import styles from './OrderHistory.module.scss'
 
 const OrderHistoryClient = () => {
   const { data, isLoading } = useFetchCollection('orders')

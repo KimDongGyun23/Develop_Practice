@@ -1,6 +1,8 @@
-import { IProduct } from '@/types'
 import { createSlice } from '@reduxjs/toolkit'
-import { RootState } from '../store'
+
+import type { IProduct } from '@/types'
+
+import type { RootState } from '../store'
 
 interface IFilterState {
   filteredProducts: IProduct[]

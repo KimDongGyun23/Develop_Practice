@@ -1,9 +1,10 @@
 'use client'
 import React, { useCallback, useEffect, useState } from 'react'
-import sliderData from './SliderData'
-import styles from './Slider.module.scss'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import Image from 'next/image'
+
+import styles from './Slider.module.scss'
+import sliderData from './SliderData'
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)

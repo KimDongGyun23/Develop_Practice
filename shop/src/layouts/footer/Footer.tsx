@@ -1,15 +1,14 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 import colorLogo from '@/assets/colorful.svg'
 import facebookIcon from '@/assets/sns-facebook.svg'
 import instagramIcon from '@/assets/sns-instagram.svg'
 import naverIcon from '@/assets/sns-naver-blog.svg'
 
-import Image from 'next/image'
-
 import styles from './Footer.module.scss'
-import Link from 'next/link'
 
 const Footer = () => {
   return (

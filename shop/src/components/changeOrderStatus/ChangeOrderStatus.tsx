@@ -1,13 +1,17 @@
 'use client'
-import { db } from '@/firebase/firebase'
-import { Timestamp, doc, setDoc } from 'firebase/firestore'
-import { useRouter } from 'next/navigation'
-import React, { FormEvent, useState } from 'react'
+import type { FormEvent } from 'react'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify'
-import Loader from '../loader/Loader'
-import styles from './ChangeOrderStatus.module.scss'
+import { useRouter } from 'next/navigation'
+import { doc, setDoc, Timestamp } from 'firebase/firestore'
+
+import { db } from '@/firebase/firebase'
+import type { IOrder } from '@/types'
+
 import Button from '../button/Button'
-import { IOrder } from '@/types'
+import Loader from '../loader/Loader'
+
+import styles from './ChangeOrderStatus.module.scss'
 
 interface IChangeOrderStatusProps {
   order: IOrder

@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from './Loader.module.scss'
 import { RotatingLines } from 'react-loader-spinner'
+
+import styles from './Loader.module.scss'
 
 interface ILoaderProps {
   basic?: boolean

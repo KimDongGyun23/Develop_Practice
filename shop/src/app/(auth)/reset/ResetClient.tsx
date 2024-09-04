@@ -1,14 +1,17 @@
 'use client'
-import React, { FormEvent, useState } from 'react'
-import styles from './Reset.module.scss'
-import Loader from '@/components/loader/Loader'
-import Heading from '@/components/heading/Heading'
-import Input from '@/components/Input/Input'
-import Button from '@/components/button/Button'
+import type { FormEvent } from 'react'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import Link from 'next/link'
 import { sendPasswordResetEmail } from 'firebase/auth'
+
+import Button from '@/components/button/Button'
+import Heading from '@/components/heading/Heading'
+import Input from '@/components/Input/Input'
+import Loader from '@/components/loader/Loader'
 import { auth } from '@/firebase/firebase'
-import { toast } from 'react-toastify'
+
+import styles from './Reset.module.scss'
 
 const ResetClient = () => {
   const [email, setEmail] = useState('')

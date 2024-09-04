@@ -1,15 +1,18 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useState } from 'react'
-import styles from './AddProduct.module.scss'
-import { useRouter } from 'next/navigation'
-import Loader from '@/components/loader/Loader'
-import Heading from '@/components/heading/Heading'
-import Button from '@/components/button/Button'
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { storage } from '@/firebase/firebase'
+import type { ChangeEvent, FormEvent } from 'react'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify'
-import { Timestamp, addDoc, collection } from 'firebase/firestore'
+import { useRouter } from 'next/navigation'
+import { addDoc, collection, Timestamp } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+
+import Button from '@/components/button/Button'
+import Heading from '@/components/heading/Heading'
+import Loader from '@/components/loader/Loader'
+import { storage } from '@/firebase/firebase'
 import { db } from '@/firebase/firebase'
+
+import styles from './AddProduct.module.scss'
 
 export const categories = [
   { id: 1, name: 'Laptop' },

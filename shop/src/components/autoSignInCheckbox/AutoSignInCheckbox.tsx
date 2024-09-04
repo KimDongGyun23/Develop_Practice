@@ -1,7 +1,10 @@
-import React, { ChangeEvent } from 'react'
-import styles from './AutoSignInCheckbox.module.scss'
+import type { ChangeEvent } from 'react'
+import React from 'react'
+
 import Checkbox from '../checkbox/Checkbox'
 import Tooltip from '../tooltip/Tooltip'
+
+import styles from './AutoSignInCheckbox.module.scss'
 
 interface IAutoSignInCheckboxProps {
   label?: string

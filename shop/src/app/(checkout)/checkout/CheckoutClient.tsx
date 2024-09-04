@@ -1,18 +1,21 @@
 'use client'
-import React, { FormEvent } from 'react'
-import styles from './Checkout.module.scss'
-import Heading from '@/components/heading/Heading'
-import CheckoutForm from '@/components/checkoutForm/CheckoutForm'
-import Button from '@/components/button/Button'
-import { loadTossPayments } from '@tosspayments/payment-sdk'
+import type { FormEvent } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CLEAR_CART, selectCartItems, selectCartTotalAmount } from '@/redux/slice/cartSlice'
 import { toast } from 'react-toastify'
-import { selectEmail, selectUserID } from '@/redux/slice/authSlice'
-import { selectShippingAddress } from '@/redux/slice/checkoutSlice'
-import { Timestamp, addDoc, collection } from 'firebase/firestore'
-import { db } from '@/firebase/firebase'
 import { useRouter } from 'next/navigation'
+import { loadTossPayments } from '@tosspayments/payment-sdk'
+import { addDoc, collection, Timestamp } from 'firebase/firestore'
+
+import Button from '@/components/button/Button'
+import CheckoutForm from '@/components/checkoutForm/CheckoutForm'
+import Heading from '@/components/heading/Heading'
+import { db } from '@/firebase/firebase'
+import { selectEmail, selectUserID } from '@/redux/slice/authSlice'
+import { CLEAR_CART, selectCartItems, selectCartTotalAmount } from '@/redux/slice/cartSlice'
+import { selectShippingAddress } from '@/redux/slice/checkoutSlice'
+
+import styles from './Checkout.module.scss'
 
 const CheckoutClient = () => {
   const userID = useSelector(selectUserID)

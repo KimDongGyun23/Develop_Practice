@@ -1,10 +1,14 @@
-import { SORT_PRODUCTS, selectFilteredProducts } from '@/redux/slice/filterSlice'
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import type { ChangeEvent } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './ProductList.module.scss'
-import ProductItem from '../productItem/ProductItem'
+
 import Pagination from '@/components/pagination/Pagination'
-import { IProduct } from '@/types'
+import { selectFilteredProducts, SORT_PRODUCTS } from '@/redux/slice/filterSlice'
+import type { IProduct } from '@/types'
+
+import ProductItem from '../productItem/ProductItem'
+
+import styles from './ProductList.module.scss'
 
 const ProductList = () => {
   const [sort, setSort] = useState('latest')

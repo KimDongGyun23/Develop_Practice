@@ -1,10 +1,12 @@
-import { FILTER_BY } from '@/redux/slice/filterSlice'
-import { selectMaxPrice, selectMinPrice, selectProducts } from '@/redux/slice/productSlice'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './ProductFilter.module.scss'
-import priceFormat from '@/utils/priceFormat'
+
 import Button from '@/components/button/Button'
+import { FILTER_BY } from '@/redux/slice/filterSlice'
+import { selectMaxPrice, selectMinPrice, selectProducts } from '@/redux/slice/productSlice'
+import priceFormat from '@/utils/priceFormat'
+
+import styles from './ProductFilter.module.scss'
 
 const ProductFilter = () => {
   const [category, setCategory] = useState('All')

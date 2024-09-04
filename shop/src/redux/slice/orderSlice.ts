@@ -1,6 +1,8 @@
-import { IOrder } from '@/types'
 import { createSlice } from '@reduxjs/toolkit'
-import { RootState } from '../store'
+
+import type { IOrder } from '@/types'
+
+import type { RootState } from '../store'
 
 interface IOrderState {
   orderHistory: IOrder[]

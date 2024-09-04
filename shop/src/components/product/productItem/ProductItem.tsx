@@ -1,12 +1,13 @@
 'use client'
 import React from 'react'
-import styles from './ProductItem.module.scss'
-import Link from 'next/link'
-import Image from 'next/image'
-import priceFormat from '@/utils/priceFormat'
 import { Rating } from 'react-simple-star-rating'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import rocketBadgeIcon from '@/assets/badge-rocket.svg'
-import useFetchDocuments from '@/hooks/useFetchDocuments'
+import priceFormat from '@/utils/priceFormat'
+
+import styles from './ProductItem.module.scss'
 
 interface IProductItemProps {
   id: string

@@ -1,15 +1,16 @@
 'use client'
 import React from 'react'
-import styles from './OrderDetails.module.scss'
+import Image from 'next/image'
 import { useParams, useRouter } from 'next/navigation'
-import useFetchDocument from '@/hooks/useFetchDocument'
+
+import Button from '@/components/button/Button'
 import Heading from '@/components/heading/Heading'
 import Loader from '@/components/loader/Loader'
-import Image from 'next/image'
+import useFetchDocument from '@/hooks/useFetchDocument'
+import type { ICartItem } from '@/types'
 import priceFormat from '@/utils/priceFormat'
-import Link from 'next/link'
-import Button from '@/components/button/Button'
-import { ICartItem } from '@/types'
+
+import styles from './OrderDetails.module.scss'
 
 const OrderDetailsClient = () => {
   const { id } = useParams()

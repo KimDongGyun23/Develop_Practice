@@ -1,19 +1,21 @@
 'use client'
-import useFetchDocument from '@/hooks/useFetchDocument'
-import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
-import styles from './ProductDetails.module.scss'
-import Loader from '@/components/loader/Loader'
-import Image from 'next/image'
+import { useDispatch } from 'react-redux'
 import { Rating } from 'react-simple-star-rating'
-import Divider from '@/components/divider/Divider'
-import priceFormat from '@/utils/priceFormat'
+import Image from 'next/image'
+import { useParams } from 'next/navigation'
+
 import listCashIcon from '@/assets/list-cash-icon.png'
 import Button from '@/components/button/Button'
-import useFetchDocuments from '@/hooks/useFetchDocuments'
+import Divider from '@/components/divider/Divider'
+import Loader from '@/components/loader/Loader'
 import ProductReviewItem from '@/components/product/productReviewItem/ProductReviewItem'
-import { useDispatch } from 'react-redux'
+import useFetchDocument from '@/hooks/useFetchDocument'
+import useFetchDocuments from '@/hooks/useFetchDocuments'
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from '@/redux/slice/cartSlice'
+import priceFormat from '@/utils/priceFormat'
+
+import styles from './ProductDetails.module.scss'
 
 const ProductDetailsClient = () => {
   const { id } = useParams()

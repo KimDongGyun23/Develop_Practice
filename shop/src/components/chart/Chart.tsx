@@ -1,17 +1,19 @@
 'use client'
 import React from 'react'
+import { Bar } from 'react-chartjs-2'
+import { useSelector } from 'react-redux'
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js'
-import { useSelector } from 'react-redux'
+
 import { selectOrderHistory } from '@/redux/slice/orderSlice'
-import { Bar } from 'react-chartjs-2'
+
 import styles from './Chart.module.scss'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)

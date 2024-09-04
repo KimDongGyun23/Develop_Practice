@@ -1,6 +1,8 @@
-import { IShippingAddress } from '@/types'
 import { createSlice } from '@reduxjs/toolkit'
-import { RootState } from '../store'
+
+import type { IShippingAddress } from '@/types'
+
+import type { RootState } from '../store'
 
 const initialState = {
   shippingAddress: {} as IShippingAddress,

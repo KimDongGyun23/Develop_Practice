@@ -1,18 +1,21 @@
 'use client'
-import React, { FormEvent, useState } from 'react'
-import styles from './ReviewProduct.module.scss'
-import { useParams, useRouter } from 'next/navigation'
+import type { FormEvent } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectUserID, selectUserName } from '@/redux/slice/authSlice'
-import useFetchDocument from '@/hooks/useFetchDocument'
-import { Timestamp, addDoc, collection } from 'firebase/firestore'
-import { db } from '@/firebase/firebase'
+import { Rating } from 'react-simple-star-rating'
 import { toast } from 'react-toastify'
+import Image from 'next/image'
+import { useParams, useRouter } from 'next/navigation'
+import { addDoc, collection, Timestamp } from 'firebase/firestore'
+
+import Button from '@/components/button/Button'
 import Heading from '@/components/heading/Heading'
 import Loader from '@/components/loader/Loader'
-import Image from 'next/image'
-import { Rating } from 'react-simple-star-rating'
-import Button from '@/components/button/Button'
+import { db } from '@/firebase/firebase'
+import useFetchDocument from '@/hooks/useFetchDocument'
+import { selectUserID, selectUserName } from '@/redux/slice/authSlice'
+
+import styles from './ReviewProduct.module.scss'
 
 const ReviewProductClient = () => {
   const [rate, setRate] = useState(0)

@@ -1,8 +1,10 @@
 'use client'
-import { db } from '@/firebase/firebase'
-import { DocumentData, collection, onSnapshot, orderBy, query } from 'firebase/firestore'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import type { DocumentData } from 'firebase/firestore'
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
+
+import { db } from '@/firebase/firebase'
 
 const useFetchCollection = (collectionName: string) => {
   const [data, setData] = useState<DocumentData[]>([])

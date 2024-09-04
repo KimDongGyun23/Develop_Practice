@@ -1,4 +1,5 @@
 import React from 'react'
+
 import CheckoutClient from './CheckoutClient'
 
 const Checkout = () => {

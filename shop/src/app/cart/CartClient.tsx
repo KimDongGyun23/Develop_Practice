@@ -1,7 +1,14 @@
 'use client'
 import React, { useEffect } from 'react'
-import styles from './CartClient.module.scss'
+import { FaTrashAlt } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
+import Button from '@/components/button/Button'
+import Heading from '@/components/heading/Heading'
+import { selectIsLoggedIn } from '@/redux/slice/authSlice'
 import {
   ADD_TO_CART,
   CALCULATE_SUBTOTAL,
@@ -14,15 +21,10 @@ import {
   selectCartTotalAmount,
   selectCartTotalQuantity,
 } from '@/redux/slice/cartSlice'
-import { useRouter } from 'next/navigation'
-import { selectIsLoggedIn } from '@/redux/slice/authSlice'
-import Heading from '@/components/heading/Heading'
-import Link from 'next/link'
-import Image from 'next/image'
+import type { ICartItem } from '@/types'
 import priceFormat from '@/utils/priceFormat'
-import { FaTrashAlt } from 'react-icons/fa'
-import Button from '@/components/button/Button'
-import { ICartItem } from '@/types'
+
+import styles from './CartClient.module.scss'
 
 const CartClient = () => {
   const cartItems = useSelector(selectCartItems)

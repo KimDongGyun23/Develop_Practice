@@ -1,6 +1,8 @@
-import React, { ChangeEvent } from 'react'
-import styles from './Search.module.scss'
+import type { ChangeEvent } from 'react'
+import React from 'react'
 import { BiSearch } from 'react-icons/bi'
+
+import styles from './Search.module.scss'
 
 interface ISearchProps {
   value: string

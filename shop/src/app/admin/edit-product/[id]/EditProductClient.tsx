@@ -1,16 +1,19 @@
 'use client'
+import type { ChangeEvent, FormEvent } from 'react'
+import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import { useParams, useRouter } from 'next/navigation'
+import { doc, setDoc, Timestamp } from 'firebase/firestore'
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+
 import Button from '@/components/button/Button'
 import Heading from '@/components/heading/Heading'
 import Loader from '@/components/loader/Loader'
 import { db, storage } from '@/firebase/firebase'
 import useFetchDocument from '@/hooks/useFetchDocument'
-import { Timestamp, doc, setDoc } from 'firebase/firestore'
-import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { useParams, useRouter } from 'next/navigation'
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+
 import styles from '../../add-product/AddProduct.module.scss'
 import { categories } from '../../add-product/AddProductClient'
-import { toast } from 'react-toastify'
 
 const EditProductClient = () => {
   const { id } = useParams()

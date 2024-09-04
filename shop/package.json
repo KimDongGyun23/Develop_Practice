@@ -1,12 +1,13 @@
 {
-  "name": "react-shop-app",
+  "name": "shop",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -14,8 +15,6 @@
     "@tosspayments/payment-sdk": "^1.6.1",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
-    "eslint": "8.41.0",
-    "eslint-config-next": "13.4.4",
     "firebase": "^9.22.1",
     "next": "13.4.4",
     "notiflix": "^3.2.6",
@@ -33,6 +32,15 @@
   "devDependencies": {
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
-    "encoding": "^0.1.13"
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "encoding": "^0.1.13",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.7",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.3"
   }
 }

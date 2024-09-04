@@ -1,7 +1,9 @@
-import { ICartItem } from '@/types'
-import { createSlice } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
-import { RootState } from '../store'
+import { createSlice } from '@reduxjs/toolkit'
+
+import type { ICartItem } from '@/types'
+
+import type { RootState } from '../store'
 
 interface ICartState {
   cartItems: ICartItem[]

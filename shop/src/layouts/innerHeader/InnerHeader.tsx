@@ -1,20 +1,20 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import freshIcon from '@/assets/icon-fresh.svg'
-import rocketIcon from '@/assets/icon-rocket.svg'
-import newIcon from '@/assets/new.svg'
+import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-
-import styles from './InnerHeader.module.scss'
+import classNames from 'classnames'
 
 import logo from '@/assets/colorful.svg'
-import classNames from 'classnames'
-import { useDispatch, useSelector } from 'react-redux'
+import freshIcon from '@/assets/icon-fresh.svg'
+import rocketIcon from '@/assets/icon-rocket.svg'
+import newIcon from '@/assets/new.svg'
+import { selectCartTotalQuantity } from '@/redux/slice/cartSlice'
 import { FILTER_BY_SEARCH } from '@/redux/slice/filterSlice'
 import { selectProducts } from '@/redux/slice/productSlice'
-import { selectCartTotalQuantity } from '@/redux/slice/cartSlice'
+
+import styles from './InnerHeader.module.scss'
 
 const InnerHeader = () => {
   const router = useRouter()

@@ -1,11 +1,13 @@
 'use client'
 import React from 'react'
-import styles from './Navbar.module.scss'
 import { FaUserCircle } from 'react-icons/fa'
-import { usePathname } from 'next/navigation'
 import { useSelector } from 'react-redux'
-import { selectUserName } from '@/redux/slice/authSlice'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+import { selectUserName } from '@/redux/slice/authSlice'
+
+import styles from './Navbar.module.scss'
 
 const Navbar = () => {
   const pathname = usePathname()
