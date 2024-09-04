@@ -1,51 +1,49 @@
 import React, { useState } from 'react'
-import styles from './Pagination.module.scss';
+import styles from './Pagination.module.scss'
 
 interface IPaginationProps {
-  currentPage: number;
-  productsPerPage: number;
-  setCurrentPage: (page: number) => void;
-  totalProducts: number;
+  currentPage: number
+  productsPerPage: number
+  setCurrentPage: (page: number) => void
+  totalProducts: number
 }
-
 
 const Pagination = ({
   currentPage,
   productsPerPage,
   setCurrentPage,
-  totalProducts
+  totalProducts,
 }: IPaginationProps) => {
+  const pageNumbers = []
 
-  const pageNumbers = [];
-
-  const [pageNumberLimit] = useState(3);
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+  const [pageNumberLimit] = useState(3)
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3)
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
 
   const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
+    setCurrentPage(pageNumber)
   }
 
   const paginateNextPage = () => {
-    setCurrentPage(currentPage + 1);
+    setCurrentPage(currentPage + 1)
 
     if (currentPage + 1 > maxPageNumberLimit) {
-      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit)
+      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit)
     }
   }
 
   const paginatePrevPage = () => {
-    setCurrentPage(currentPage - 1);
+    setCurrentPage(currentPage - 1)
 
     if ((currentPage - 1) % pageNumberLimit === 0) {
-      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit)
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit)
     }
   }
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
-    pageNumbers.push(i);
+    pageNumbers.push(i)
   }
 
   return (
@@ -54,7 +52,7 @@ const Pagination = ({
         onClick={paginatePrevPage}
         className={currentPage === pageNumbers[0] ? `${styles.hidden}` : ''}
       >
-        {"<"}
+        {'<'}
       </li>
 
       {pageNumbers.map((number) => {
@@ -73,13 +71,9 @@ const Pagination = ({
 
       <li
         onClick={paginateNextPage}
-        className={
-          currentPage === pageNumbers[pageNumbers.length - 1]
-            ? `${styles.hidden}`
-            : ''
-        }
+        className={currentPage === pageNumbers[pageNumbers.length - 1] ? `${styles.hidden}` : ''}
       >
-        {">"}
+        {'>'}
       </li>
     </div>
   )

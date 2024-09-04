@@ -1,15 +1,15 @@
 import React from 'react'
-import styles from './InfoBox.module.scss';
+import styles from './InfoBox.module.scss'
 
 interface IInfoBoxProps {
-  cardClass: string;
-  title: string;
-  count: string;
+  cardClass: string
+  title: string
+  count: string
   icon: React.JSX.Element
 }
 
 const InfoBox = ({ cardClass, title, count, icon }: IInfoBoxProps) => {
-  return (  
+  return (
     <div className={styles.infoBox}>
       <div className={cardClass}>
         <h4>{title}</h4>

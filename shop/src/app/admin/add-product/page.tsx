@@ -2,9 +2,7 @@ import React from 'react'
 import AddProductClient from './AddProductClient'
 
 const AddProduct = () => {
-  return (
-    <AddProductClient />
-  )
+  return <AddProductClient />
 }
 
 export default AddProduct

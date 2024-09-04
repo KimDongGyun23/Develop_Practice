@@ -1,25 +1,23 @@
 'use client'
 import React from 'react'
-import styles from './ProductItem.module.scss';
-import Link from 'next/link';
-import Image from 'next/image';
-import priceFormat from '@/utils/priceFormat';
-import { Rating } from 'react-simple-star-rating';
-import rocketBadgeIcon from '@/assets/badge-rocket.svg';
-import useFetchDocuments from '@/hooks/useFetchDocuments';
+import styles from './ProductItem.module.scss'
+import Link from 'next/link'
+import Image from 'next/image'
+import priceFormat from '@/utils/priceFormat'
+import { Rating } from 'react-simple-star-rating'
+import rocketBadgeIcon from '@/assets/badge-rocket.svg'
+import useFetchDocuments from '@/hooks/useFetchDocuments'
 
 interface IProductItemProps {
-  id: string;
-  name: string;
-  price: number;
-  imageURL: string;
-  category: string;
-  brand: string;
+  id: string
+  name: string
+  price: number
+  imageURL: string
+  category: string
+  brand: string
 }
 
-
 const ProductItem = ({ id, name, price, imageURL, category, brand }: IProductItemProps) => {
-
   // const { documents } = useFetchDocuments('reviews', ["productID", "==", id])
 
   // let productRating = 0;
@@ -30,13 +28,12 @@ const ProductItem = ({ id, name, price, imageURL, category, brand }: IProductIte
 
   // const rating = productRating / documents.length;
 
-
   const shortenText = (text: string, n: number) => {
     if (text.length > n) {
-      const shortenedText = text.substring(0, n).concat('...');
+      const shortenedText = text.substring(0, n).concat('...')
       return shortenedText
     }
-    return text;
+    return text
   }
 
   return (
@@ -50,19 +47,15 @@ const ProductItem = ({ id, name, price, imageURL, category, brand }: IProductIte
         <div className={styles.details}>
           <p>{shortenText(name, 10)}</p>
           <em>
-            <strong
-              style={{ color: '#cb1400' }}
-            >
-              {priceFormat(price)}
-            </strong>원{" "}
-            <Image src={rocketBadgeIcon} alt='로켓배송' />
+            <strong style={{ color: '#cb1400' }}>{priceFormat(price)}</strong>원{' '}
+            <Image src={rocketBadgeIcon} alt="로켓배송" />
           </em>
           <div className={styles.rating}>
             <Rating
               size={17}
               readonly
               initialValue={1}
-            // initialValue={Number.isNaN(rating) ? 0 : rating}
+              // initialValue={Number.isNaN(rating) ? 0 : rating}
             />
             <span className={styles.ratingCount}>
               (1)
@@ -71,7 +64,6 @@ const ProductItem = ({ id, name, price, imageURL, category, brand }: IProductIte
           </div>
         </div>
       </div>
-
     </div>
   )
 }

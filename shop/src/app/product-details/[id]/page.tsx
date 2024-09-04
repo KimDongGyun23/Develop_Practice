@@ -2,9 +2,7 @@ import React from 'react'
 import ProductDetailsClient from './ProductDetailsClient'
 
 const ProductDetails = () => {
-  return (
-    <ProductDetailsClient />
-  )
+  return <ProductDetailsClient />
 }
 
 export default ProductDetails
