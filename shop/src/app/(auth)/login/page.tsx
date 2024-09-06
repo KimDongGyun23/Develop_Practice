@@ -17,13 +17,10 @@ import GoogleLoginButton from './GoogleLoginButton'
 const Login = () => {
   const handleLoginAction = async (formData: FormData) => {
     'use server'
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
 
-    const rawFormData = {
-      email: formData.get('email') as string,
-      password: formData.get('password') as string,
-    }
-
-    signInWithEmailAndPassword(auth, rawFormData.email, rawFormData.password)
+    signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         toast.success('로그인에 성공했습니다.')
         redirect('/')
