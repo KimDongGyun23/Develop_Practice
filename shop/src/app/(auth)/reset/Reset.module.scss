@@ -11,6 +11,32 @@
       padding: 2rem;
       box-shadow: var(--box-shadow);
 
+      .inputWrapper {
+        position: relative;
+        display: inline-flex;
+        min-width: 296px;
+        border: 1px solid var(--border-gray);
+      }
+
+      .input {
+        flex: 1;
+        border: 0;
+        padding: 0.875rem;
+        background: var(--color-white);
+        border: 1px solid var(--border-gray);
+
+        &::placeholder {
+          color: var(--dark-gray);
+        }
+      }
+
+      .label {
+        display: inline-block;
+        margin-bottom: 4px;
+        color: #24292e;
+        font-size: 13px;
+      }
+
       .control {
         margin-bottom: 20px;
       }
