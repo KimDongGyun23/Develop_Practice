@@ -20,6 +20,7 @@
       .inputField {
         display: inline-flex;
         flex-direction: column;
+        margin-bottom: 20px;
 
         .label {
           display: inline-block;
@@ -51,10 +52,6 @@
             color: var(--dark-gray);
           }
         }
-      }
-
-      .control {
-        margin-bottom: 20px;
       }
 
       .group {

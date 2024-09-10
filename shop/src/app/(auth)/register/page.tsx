@@ -7,11 +7,10 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import LogoPath from '@/assets/colorful.svg'
 import Button from '@/components/button/Button'
 import Divider from '@/components/divider/Divider'
+import Icon from '@/components/icon/Icon'
 import { auth } from '@/firebase/firebase'
 
 import styles from '../login/Auth.module.scss'
-
-import RegisterClient from './RegisterClient'
 
 const Register = () => {
   const handleRegisterAction = async (formData: FormData) => {
@@ -46,29 +45,55 @@ const Register = () => {
         </h1>
 
         <form action={handleRegisterAction} className={styles.form}>
-          <RegisterClient />
+          {/* <RegisterClient /> */}
 
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="아이디(이메일)"
-            className={styles.control}
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="비밀번호"
-            className={styles.control}
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="비밀번호 확인"
-            className={styles.control}
-          />
+          <div className={styles.inputField}>
+            <label htmlFor="email" className={styles.label}>
+              이메일
+            </label>
+            <div className={styles.inputWrapper}>
+              <Icon type="letter" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="아이디(이메일)"
+                className={styles.input}
+              />
+            </div>
+          </div>
+
+          <div className={styles.inputField}>
+            <label htmlFor="password" className={styles.label}>
+              비밀번호
+            </label>
+            <div className={styles.inputWrapper}>
+              <Icon type="lock" />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="비밀번호"
+                className={styles.input}
+              />
+            </div>
+          </div>
+
+          <div className={styles.inputField}>
+            <label htmlFor="cPassword" className={styles.label}>
+              비밀번호
+            </label>
+            <div className={styles.inputWrapper}>
+              <Icon type="lock" />
+              <input
+                type="password"
+                id="cPassword"
+                name="cPassword"
+                placeholder="비밀번호 확인"
+                className={styles.input}
+              />
+            </div>
+          </div>
 
           <div className={styles.buttonGroup}>
             <Button type="submit" width="100%">
