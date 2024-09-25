@@ -1,42 +1,15 @@
-import { toast } from 'react-toastify'
 import Image from 'next/image'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 import LogoPath from '@/assets/colorful.svg'
 import Button from '@/components/button/Button'
 import Divider from '@/components/divider/Divider'
 import Icon from '@/components/icon/Icon'
-import { auth } from '@/firebase/firebase'
+import { handleRegisterAction } from '@/firebase/auth/register'
 
 import styles from '../login/Auth.module.scss'
 
 const Register = () => {
-  const handleRegisterAction = async (formData: FormData) => {
-    'use server'
-
-    const email = formData.get('email') as string
-    const password = formData.get('password') as string
-    const cPassword = formData.get('cPassword') as string
-
-    if (password !== cPassword) {
-      return toast.error(`비밀번호가 일치하지 않습니다.`)
-    }
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user
-        console.log('user', user)
-
-        toast.success('등록 성공...')
-        redirect('/login')
-      })
-      .catch((error) => {
-        toast.error(error.message)
-      })
-  }
-
   return (
     <section className={styles.page}>
       <div className={styles.container}>
@@ -45,8 +18,6 @@ const Register = () => {
         </h1>
 
         <form action={handleRegisterAction} className={styles.form}>
-          {/* <RegisterClient /> */}
-
           <div className={styles.inputField}>
             <label htmlFor="email" className={styles.label}>
               이메일
