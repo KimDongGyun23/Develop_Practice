@@ -1,35 +1,17 @@
-import { toast } from 'react-toastify'
 import Image from 'next/image'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { signInWithEmailAndPassword } from 'firebase/auth'
 
 import LogoPath from '@/assets/colorful.svg'
 import AutoSignInCheckbox from '@/components/autoSignInCheckbox/AutoSignInCheckbox'
 import Button from '@/components/button/Button'
 import Divider from '@/components/divider/Divider'
 import Icon from '@/components/icon/Icon'
-import { auth } from '@/firebase/firebase'
+import { handleLoginAction } from '@/firebase/auth/login'
 
 import styles from './Auth.module.scss'
 import GoogleLoginButton from './GoogleLoginButton'
 
 const Login = () => {
-  const handleLoginAction = async (formData: FormData) => {
-    'use server'
-    const email = formData.get('email') as string
-    const password = formData.get('password') as string
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        toast.success('로그인에 성공했습니다.')
-        redirect('/')
-      })
-      .catch((error) => {
-        toast.error(error.message)
-      })
-  }
-
   return (
     <section className={styles.page}>
       <div className={styles.container}>
