@@ -5,7 +5,7 @@ import LogoPath from '@/assets/colorful.svg'
 import Button from '@/components/button/Button'
 import Divider from '@/components/divider/Divider'
 import Icon from '@/components/icon/Icon'
-import { handleRegisterAction } from '@/firebase/auth/register'
+import { handleRegisterAction } from '@/firebase/auth'
 
 import styles from '../login/Auth.module.scss'
 

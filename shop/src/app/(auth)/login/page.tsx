@@ -6,7 +6,7 @@ import AutoSignInCheckbox from '@/components/autoSignInCheckbox/AutoSignInCheckb
 import Button from '@/components/button/Button'
 import Divider from '@/components/divider/Divider'
 import Icon from '@/components/icon/Icon'
-import { handleLoginAction, signInWithGoogle } from '@/firebase/auth/login'
+import { handleLoginAction, signInWithGoogle } from '@/firebase/auth'
 
 import styles from './Auth.module.scss'
 

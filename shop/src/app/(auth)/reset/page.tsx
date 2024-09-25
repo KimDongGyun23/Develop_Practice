@@ -1,27 +1,12 @@
-import { toast } from 'react-toastify'
 import Link from 'next/link'
-import { sendPasswordResetEmail } from 'firebase/auth'
 
 import Button from '@/components/button/Button'
 import Heading from '@/components/heading/Heading'
-import { auth } from '@/firebase/firebase'
+import { handleResetAction } from '@/firebase/auth'
 
 import styles from './Reset.module.scss'
 
 const Reset = () => {
-  const handleResetAction = async (formData: FormData) => {
-    'use server'
-    const email = formData.get('email') as string
-
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        toast.success('비밀번호 업데이트를 위해서 이메일을 체크해주세요.')
-      })
-      .catch((error) => {
-        toast.error(error.message)
-      })
-  }
-
   return (
     <section className={styles.page}>
       <div className={styles.container}>
