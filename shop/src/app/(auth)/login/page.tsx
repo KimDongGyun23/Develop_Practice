@@ -6,10 +6,9 @@ import AutoSignInCheckbox from '@/components/autoSignInCheckbox/AutoSignInCheckb
 import Button from '@/components/button/Button'
 import Divider from '@/components/divider/Divider'
 import Icon from '@/components/icon/Icon'
-import { handleLoginAction } from '@/firebase/auth/login'
+import { handleLoginAction, signInWithGoogle } from '@/firebase/auth/login'
 
 import styles from './Auth.module.scss'
-import GoogleLoginButton from './GoogleLoginButton'
 
 const Login = () => {
   return (
@@ -82,7 +81,11 @@ const Login = () => {
 
             <Divider />
 
-            <GoogleLoginButton />
+            <div>
+              <Button onClick={signInWithGoogle} width="100%">
+                구글 로그인
+              </Button>
+            </div>
           </div>
         </form>
       </div>
