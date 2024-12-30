@@ -1,0 +1,30 @@
+import classNames from "classnames";
+import styles from "./Button.module.scss";
+
+export const Button = ({
+  type = "button",
+  secondary = false,
+  bgColor,
+  fgColor,
+  width,
+  ...restProps
+}) => {
+  const composeClasses = classNames(
+    styles.button,
+    secondary ? styles.secondary : styles.primary
+  );
+  const stlyle = {
+    backgroundColor: bgColor || "",
+    color: fgColor || "",
+    width: width || "",
+  };
+
+  return (
+    <button
+      className={composeClasses}
+      type={type}
+      style={stlyle}
+      {...restProps}
+    />
+  );
+};

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import styles from "./Auth.module.scss";
 import { Loader } from "@/components/loader/Loader";
 import { Icon } from "@/components/icon/Icon";
+import { Button } from "@/components/button/Button";
 import { Divider } from "@/components/divider/Divider";
 import { AutoSignInCheckbox } from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 import { useState } from "react";
@@ -91,10 +92,21 @@ export const LoginClient = () => {
               </Link>
             </div>
             <div className={styles.buttonGroup}>
-              button
+              <Button type="submit" width="100%">
+                로그인
+              </Button>
               <Divider />
-              button
+
+              <Button width="100%" secondary>
+                <Link href={"/register"}>회원가입</Link>
+              </Button>
               <Divider />
+
+              <div>
+                <Button onClick={signInWithGoogle} width="100%">
+                  구글 로그인
+                </Button>
+              </div>
             </div>
           </form>
         </div>
