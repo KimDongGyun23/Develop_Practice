@@ -9,6 +9,7 @@ import { Loader } from "@/components/loader/Loader";
 import { Icon } from "@/components/icon/Icon";
 import { AutoSignInCheckbox } from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 import { useState } from "react";
+import Link from "next/link";
 
 export const LoginClient = () => {
   const [email, setEmail] = useState("");
@@ -69,7 +70,24 @@ export const LoginClient = () => {
             </div>
 
             <div className={styles.group}>
-              <AutoSignInCheckbox onChange={() => {}} />
+              <AutoSignInCheckbox />
+              <Link href={"/reset"} className={styles.findLink}>
+                비밀번호 수정하기
+                <svg
+                  width="11"
+                  height="18"
+                  viewBox="0 0 11 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={styles.findLinkArrow}
+                >
+                  <path
+                    d="M1.5 1L9.5 9L1.5 17"
+                    stroke="#0074E9"
+                    strokeWidth="2"
+                  />
+                </svg>
+              </Link>
             </div>
             <div className={styles.buttonGroup}></div>
           </form>

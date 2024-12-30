@@ -14,6 +14,7 @@ export const CheckBox = ({
         onChange={onChange}
         {...restProps}
       />{" "}
+      {label}
     </label>
   );
 };
