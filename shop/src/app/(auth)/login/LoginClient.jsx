@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 
 import styles from "./Auth.module.scss";
 import { Loader } from "@/components/loader/Loader";
-import { Input } from "@/components/input/Input";
+import { Icon } from "@/components/icon/Icon";
+import { AutoSignInCheckbox } from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 import { useState } from "react";
 
 export const LoginClient = () => {
@@ -36,30 +37,40 @@ export const LoginClient = () => {
           </h1>
 
           <form onSubmit={loginUser} className={styles.form}>
-            <Input
-              email
-              icon="letter"
-              id="email"
-              name="email"
-              label="이메일"
-              placeholder="아이디(이메일)"
-              className={styles.control}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div className={styles.inputField}>
+              <label htmlFor="email" className={styles.label}>
+                이메일
+              </label>
+              <div className={styles.inputWrapper}>
+                <Icon type="letter" />
+                <input
+                  id="email"
+                  name="email"
+                  placeholder="아이디(이메일)"
+                  className={styles.input}
+                />
+              </div>
+            </div>
 
-            <Input
-              password
-              icon="lock"
-              id="password"
-              name="password"
-              label="비밀번호"
-              placeholder="비밀번호"
-              className={styles.control}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div className={styles.group}></div>
+            <div className={styles.inputField}>
+              <label htmlFor="password" className={styles.label}>
+                비밀번호
+              </label>
+              <div className={styles.inputWrapper}>
+                <Icon type="lock" />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="비밀번호"
+                  className={styles.input}
+                />
+              </div>
+            </div>
+
+            <div className={styles.group}>
+              <AutoSignInCheckbox onChange={() => {}} />
+            </div>
             <div className={styles.buttonGroup}></div>
           </form>
         </div>
