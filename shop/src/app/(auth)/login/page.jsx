@@ -1,5 +1,7 @@
 import { LoginClient } from "./LoginClient";
 
-export const page = () => {
+const page = () => {
   return <LoginClient />;
 };
+
+export default page;
