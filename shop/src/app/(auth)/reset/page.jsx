@@ -1,3 +1,7 @@
-export const page = () => {
-  return <div>page</div>;
+import { ResetClient } from "./ResetClient";
+
+const page = () => {
+  return <ResetClient />;
 };
+
+export default page;
