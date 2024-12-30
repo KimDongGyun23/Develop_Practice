@@ -1,3 +1,5 @@
+import { LoginClient } from "./LoginClient";
+
 export const page = () => {
-  return <div>page</div>;
+  return <LoginClient />;
 };

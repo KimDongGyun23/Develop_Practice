@@ -1,0 +1,91 @@
+.page {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .container {
+    width: 576px;
+
+    .logo {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .form {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      max-width: 578px;
+
+      .inputField {
+        display: inline-flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        .label {
+          display: inline-block;
+          margin-bottom: 4px;
+          color: #24292e;
+          font-size: 13px;
+        }
+
+        .inputWrapper {
+          position: relative;
+          display: inline-flex;
+          min-width: 296px;
+          border: 1px solid var(--border-gray);
+        }
+
+        .inputWrapperError {
+          position: relative;
+          border: 1px solid var(--color-red);
+        }
+
+        .input {
+          flex: 1;
+          border: 0;
+          padding: 0.875rem;
+          background: var(--color-white);
+          border: 1px solid var(--border-gray);
+
+          &::placeholder {
+            color: var(--dark-gray);
+          }
+        }
+      }
+
+      .group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2px;
+
+        .findLink {
+          color: var(--color-primary);
+          text-decoration: none;
+          font-size: 1.4rem;
+        }
+
+        .findLinkArrow {
+          margin-left: 6px;
+          vertical-align: -3px;
+        }
+      }
+
+      .buttonGroup {
+        margin: 2rem 0;
+
+        .button {
+          width: 100%;
+          cursor: pointer;
+          box-sizing: border-box;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border: 0;
+          padding: 0.7rem 3rem;
+          box-shadow: var(--box-shadow);
+        }
+      }
+    }
+  }
+}
