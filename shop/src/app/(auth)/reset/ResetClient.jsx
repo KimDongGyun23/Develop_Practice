@@ -1,10 +1,10 @@
 "use client";
 import { Loader } from "@/components/loader/Loader";
 import styles from "./ResetClient.module.scss";
-import { Heading } from "@/layouts/header/Heading";
 import Link from "next/link";
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/button/Button";
+import { Heading } from "@/components/heading/Heading";
 import { useState } from "react";
 
 export const ResetClient = () => {
