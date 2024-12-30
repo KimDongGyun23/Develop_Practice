@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import styles from "./Auth.module.scss";
 import { Loader } from "@/components/loader/Loader";
 import { Icon } from "@/components/icon/Icon";
+import { Divider } from "@/components/divider/Divider";
 import { AutoSignInCheckbox } from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 import { useState } from "react";
 import Link from "next/link";
@@ -89,7 +90,12 @@ export const LoginClient = () => {
                 </svg>
               </Link>
             </div>
-            <div className={styles.buttonGroup}></div>
+            <div className={styles.buttonGroup}>
+              button
+              <Divider />
+              button
+              <Divider />
+            </div>
           </form>
         </div>
       </section>
