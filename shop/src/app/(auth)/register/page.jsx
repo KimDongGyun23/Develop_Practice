@@ -1,3 +1,7 @@
-export const page = () => {
-  return <div>page</div>;
+import { RegisterClient } from "./RegisterClient";
+
+const page = () => {
+  return <RegisterClient />;
 };
+
+export default page;
