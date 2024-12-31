@@ -13,6 +13,12 @@ import { AutoSignInCheckbox } from "@/components/autoSignInCheckbox/AutoSignInCh
 import { useState } from "react";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth } from "@/firebase/firebase";
 
 export const LoginClient = () => {
   const [email, setEmail] = useState("");
@@ -22,15 +28,35 @@ export const LoginClient = () => {
 
   const router = useRouter();
 
-  const redirecUser = () => router.push("/");
+  const redirectUser = () => router.push("/");
 
   const loginUser = (e) => {
     e.preventDefault();
-    toast.success("succ");
     setIsLoading(true);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setIsLoading(false);
+        toast.success("로그인에 성공했습니다.");
+        redirectUser();
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        toast.error(error.message);
+      });
   };
 
-  const signInWithGoogle = () => {};
+  const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        toast.success("로그인에 성공했습니다.");
+        redirectUser();
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   return (
     <>
