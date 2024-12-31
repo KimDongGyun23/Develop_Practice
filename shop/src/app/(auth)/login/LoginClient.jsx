@@ -12,6 +12,7 @@ import { Divider } from "@/components/divider/Divider";
 import { AutoSignInCheckbox } from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 import { useState } from "react";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export const LoginClient = () => {
   const [email, setEmail] = useState("");
@@ -25,6 +26,7 @@ export const LoginClient = () => {
 
   const loginUser = (e) => {
     e.preventDefault();
+    toast.success("succ");
     setIsLoading(true);
   };
 
