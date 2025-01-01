@@ -11,10 +11,20 @@ import rocketIcon from "@/assets/icon-rocket.svg";
 import newIcon from "@/assets/new.svg";
 
 import styles from "./InnerHeader.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { FILTER_BY_SEARCH } from "@/redux/slice/filterSlice";
 
 const InnerHeader = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [search, setSearch] = useState("");
+
+  const products = useSelector(selectProducts);
+  const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+
+  useEffect(() => {
+    dispatch(FILTER_BY_SEARCH({ products, search }));
+  }, [dispatch, products, search]);
 
   const handleClick = () => {
     router.push("/cart");
@@ -90,7 +100,9 @@ const InnerHeader = () => {
           >
             장바구니
           </button>
-          <strong className={styles.cartProductCount}>{1}</strong>
+          <strong className={styles.cartProductCount}>
+            {cartTotalQuantity}
+          </strong>
         </div>
       </div>
       <div className={styles.typeNavigation}>
