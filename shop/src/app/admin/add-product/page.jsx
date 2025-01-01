@@ -1,3 +1,5 @@
+import { AddProductClient } from "./AddProductClient";
+
 export const page = () => {
-  return <div>page</div>;
+  return <AddProductClient />;
 };
