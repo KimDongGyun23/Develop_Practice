@@ -10,6 +10,9 @@ const nextConfig = {
     config.resolve.alias["@"] = path.join(__dirname, "src");
     return config;
   },
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 };
 
 export default nextConfig;
